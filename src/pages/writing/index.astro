@@ -1,17 +1,11 @@
 ---
 import Base from '../../layouts/Base.astro';
 import PostList from '../../components/PostList.astro';
-import { getPosts, getAllTags, tagSlug } from '../../lib/content';
+import { getPosts } from '../../lib/content';
 const posts = await getPosts();
-const tags = await getAllTags();
 ---
 <Base title="Writing" description="Posts by Akshata Sawant on AI agents, MCP, Agentforce, Data Cloud and MuleSoft, here and on the Salesforce Developers Blog.">
   <h1>Writing</h1>
-  <p class="muted">Posts here and on the Salesforce Developers Blog (marked ↗), newest first. <a href="/rss.xml">RSS feed</a>.</p>
-  <nav aria-label="Tags">
-    <ul class="tags">
-      {tags.map(([t, n]) => <li><a class="tag" href={`/writing/tags/${tagSlug(t)}/`}>{t} <span class="visually-hidden">(</span>{n}<span class="visually-hidden"> posts)</span></a></li>)}
-    </ul>
-  </nav>
+  <p class="muted">Posts on the Salesforce Developers Blog, the MuleSoft Blog and LinkedIn (marked ↗), newest first. <a href="/rss.xml">RSS feed</a>.</p>
   <PostList posts={posts} />
 </Base>

@@ -90,16 +90,16 @@ Edit `RECOGNITION` and `CERTIFICATIONS` in `src/site.config.ts`. They're shown o
 
 Every build publishes [`/content-inventory.csv`](https://akshatasawant.dev/content-inventory.csv): one row per post, video, talk, project, award and certification on the site, including auto-added YouTube videos. In Google Sheets, `=IMPORTDATA("https://akshatasawant.dev/content-inventory.csv")` gives a tab that stays current.
 
-### Placeholder content
+Posts can still have `tags:` (used in the RSS feed), but tags aren't shown on the site.
 
-Items marked **PLACEHOLDER** (or `placeholder: true`) are seed content to replace or delete:
+## Contact form
 
-- `src/content/posts/why-eval-tested-agents.md`
-- `src/content/posts/notes-on-mcp-tool-design.mdx`
-- `src/content/posts/draft-example.md` (a draft, to show that drafts are excluded)
-- the newsletter form (see below)
+`/contact` has a form that emails messages to you through [Web3Forms](https://web3forms.com) (free, 250 messages a month). Your email address is never published: it's linked to an access key on Web3Forms' side.
 
-Everything else (blog links, videos, talks, projects, timeline) is real. Talk dates are approximate (month of the recording), so check them.
+1. Go to https://web3forms.com, enter your email address and click **Create Access Key**. The key arrives by email.
+2. Paste it into `CONTACT.web3formsKey` in `src/site.config.ts` and push. (The key is safe to publish; it can only send messages to your inbox.)
+
+While the key is empty, `/contact` shows a LinkedIn link instead of the form. After sending, visitors land on `/contact/thanks/`. A hidden `botcheck` field filters simple spam bots.
 
 ## Newsletter / book sign-up form
 

@@ -1,7 +1,7 @@
 ---
 import { render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
-import { getLocalPosts, readingTime, formatDate, isoDate, tagSlug } from '../../lib/content';
+import { getLocalPosts, readingTime, formatDate, isoDate } from '../../lib/content';
 
 export async function getStaticPaths() {
   const posts = await getLocalPosts(); // newest first
@@ -12,7 +12,7 @@ export async function getStaticPaths() {
 }
 const { post, newer, older } = Astro.props;
 const { Content } = await render(post);
-const { title, description, date, tags, draft, placeholder } = post.data;
+const { title, description, date, draft, placeholder } = post.data;
 ---
 <Base title={title} description={description} type="article" publishedTime={date} noindex={draft}>
   <article>
@@ -23,11 +23,6 @@ const { title, description, date, tags, draft, placeholder } = post.data;
         {draft && <> · <span class="badge">Draft</span></>}
         {placeholder && <> · <span class="badge">Placeholder</span></>}
       </p>
-      {tags.length > 0 && (
-        <ul class="tags" aria-label="Tags">
-          {tags.map((t) => <li><a class="tag" href={`/writing/tags/${tagSlug(t)}/`}>{t}</a></li>)}
-        </ul>
-      )}
     </header>
     <div class="prose">
       <Content />

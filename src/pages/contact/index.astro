@@ -1,0 +1,58 @@
+---
+import Base from '../../layouts/Base.astro';
+import { CONTACT, LINKS, SITE } from '../../site.config';
+const enabled = CONTACT.web3formsKey.trim().length > 0;
+const thanks = new URL('/contact/thanks/', Astro.site).href;
+const reasons = ['Speaking invitation', 'Podcast or interview', 'Workshop or training', 'Collaboration', 'Something else'];
+---
+<Base title="Contact" description={`Get in touch with ${SITE.name} about speaking, podcasts, workshops or collaborations.`}>
+  <h1>Contact</h1>
+  <p>I'm happy to hear about speaking invitations, podcasts, workshops and collaborations on AI agents, MCP, Agentforce and MuleSoft.</p>
+  {enabled ? (
+    <form class="contact" action="https://api.web3forms.com/submit" method="post">
+      <input type="hidden" name="access_key" value={CONTACT.web3formsKey} />
+      <input type="hidden" name="subject" value={`New message from ${new URL(Astro.site!).host}`} />
+      <input type="hidden" name="from_name" value={`${SITE.name} website`} />
+      <input type="hidden" name="redirect" value={thanks} />
+      {/* Spam trap: hidden from people, bots tick it. */}
+      <input type="checkbox" name="botcheck" style="display: none" />
+
+      <div class="field">
+        <label for="c-name">Your name</label>
+        <input id="c-name" name="name" type="text" autocomplete="name" required maxlength="100" />
+      </div>
+      <div class="field">
+        <label for="c-email">Your email</label>
+        <input id="c-email" name="email" type="email" autocomplete="email" required maxlength="200" />
+        <p class="hint small muted">So I can reply. It isn't shared or added to any list.</p>
+      </div>
+      <div class="field">
+        <label for="c-reason">What's it about?</label>
+        <select id="c-reason" name="topic" required>
+          {reasons.map((r) => <option>{r}</option>)}
+        </select>
+      </div>
+      <div class="field">
+        <label for="c-org">Organisation or event <span class="muted">(optional)</span></label>
+        <input id="c-org" name="organisation" type="text" autocomplete="organization" maxlength="150" />
+      </div>
+      <div class="field">
+        <label for="c-msg">Message</label>
+        <textarea id="c-msg" name="message" rows="7" required maxlength="5000"></textarea>
+      </div>
+      <button class="button" type="submit">Send message</button>
+      <p class="small muted">Messages are delivered by <a href="https://web3forms.com/privacy">Web3Forms</a>. I use your details only to reply.</p>
+    </form>
+  ) : (
+    <p>The best way to reach me is a message on <a href={LINKS.linkedin}>LinkedIn</a>.</p>
+  )}
+  {enabled && <p>You can also reach me on <a href={LINKS.linkedin}>LinkedIn</a>.</p>}
+</Base>
+<style>
+  .contact { max-width: 36rem; margin: 1.5rem 0; }
+  .field { margin-bottom: 1rem; }
+  .field label { display: block; font-weight: 600; margin-bottom: .3rem; }
+  .field input, .field select, .field textarea { width: 100%; font: inherit; padding: .5rem .7rem; border: 1px solid var(--muted); border-radius: 6px; background: var(--bg); color: var(--fg); }
+  .field textarea { resize: vertical; }
+  .hint { margin: .25rem 0 0; }
+</style>

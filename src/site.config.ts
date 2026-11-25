@@ -60,6 +60,7 @@ export const NAV = [
   { href: '/projects/', label: 'Projects' },
   { href: '/book/', label: 'Book' },
   { href: '/about/', label: 'About' },
+  { href: '/contact/', label: 'Contact' },
 ];
 
 // Career timeline, newest first.
@@ -118,4 +119,11 @@ export const LINKEDIN_VIDEOS = [
 export const VERIFICATION = {
   google: 'ehqeR1Z60989OZCQcOeyzu8pXROtan8ZMaZgrsfNPv0',
   bing: '',
+};
+
+// Contact form (/contact). Messages are delivered by Web3Forms (https://web3forms.com) to the
+// inbox linked to this access key; the email address itself never appears on the site or in this repo.
+// The key is safe to publish (it can only send messages to that inbox). Empty = show a LinkedIn link instead.
+export const CONTACT = {
+  web3formsKey: '',
 };

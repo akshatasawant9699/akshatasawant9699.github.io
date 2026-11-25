@@ -8,7 +8,7 @@ export default defineConfig({
   site: 'https://akshatasawant.dev',
   trailingSlash: 'ignore',
   build: { format: 'directory', inlineStylesheets: 'always' },
-  integrations: [mdx(), sitemap({ filter: (page) => !page.includes('/404') })],
+  integrations: [mdx(), sitemap({ filter: (page) => !page.includes('/404') && !page.includes('/contact/thanks') })],
   markdown: {
     shikiConfig: { themes: { light: 'github-light', dark: 'github-dark' } },
   },
