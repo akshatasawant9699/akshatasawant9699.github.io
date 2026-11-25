@@ -35,7 +35,8 @@ const year = new Date().getFullYear();
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <div class="wrap">
-        <a class="site-name" href="/">{SITE.name}</a>
+        {/* The home page already shows the name as its heading, so skip it here. */}
+        {Astro.url.pathname !== '/' && <a class="site-name" href="/">{SITE.name}</a>}
         <nav class="site-nav" aria-label="Main">
           <ul>
             {NAV.map((item) => (

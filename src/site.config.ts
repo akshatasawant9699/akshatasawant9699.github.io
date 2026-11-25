@@ -72,7 +72,7 @@ export const TIMELINE = [
   { when: '2013 – 2017', role: 'BE, Information Technology', org: 'Xavier Institute of Engineering', place: 'Mumbai' },
 ];
 
-// Awards and recognition, newest first. Shown on /about; the first one also appears on the home page.
+// Awards and recognition, newest first. Shown on /about.
 export const RECOGNITION = [
   {
     when: '2024',

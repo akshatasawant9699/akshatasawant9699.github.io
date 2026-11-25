@@ -82,7 +82,7 @@ Add an entry to `src/data/talks.yaml` or `src/data/projects.yaml`, following the
 
 ### Awards and certifications
 
-Edit `RECOGNITION` and `CERTIFICATIONS` in `src/site.config.ts`. They're shown on /about; the first award also appears on the home page.
+Edit `RECOGNITION` and `CERTIFICATIONS` in `src/site.config.ts`. They're shown on /about.
 
 ### Content inventory (for a spreadsheet)
 
