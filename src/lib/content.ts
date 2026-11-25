@@ -23,6 +23,15 @@ export async function getVideos() {
 export async function getTalks() {
   return (await getCollection('talks')).sort(byDateDesc);
 }
+/** Upcoming talks (soonest first) and past talks (newest first), relative to build time. */
+export async function getTalksSplit() {
+  const now = Date.now();
+  const all = await getTalks();
+  return {
+    upcoming: all.filter((t) => t.data.date.valueOf() >= now).reverse(),
+    past: all.filter((t) => t.data.date.valueOf() < now),
+  };
+}
 export async function getProjects() {
   return (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
 }
@@ -45,4 +54,6 @@ const fmt = new Intl.DateTimeFormat('en-GB', { year: 'numeric', month: 'short', 
 const fmtMonth = new Intl.DateTimeFormat('en-GB', { year: 'numeric', month: 'short', timeZone: 'UTC' });
 export const formatDate = (d: Date) => fmt.format(d);
 export const formatMonth = (d: Date) => fmtMonth.format(d);
+const fmtFull = new Intl.DateTimeFormat('en-GB', { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' });
+export const formatFullDate = (d: Date) => fmtFull.format(d);
 export const isoDate = (d: Date) => d.toISOString().slice(0, 10);

@@ -1,12 +1,20 @@
 ---
 import Base from '../layouts/Base.astro';
-import { getTalks, formatMonth, isoDate } from '../lib/content';
+import UpcomingEvent from '../components/UpcomingEvent.astro';
+import { getTalksSplit, formatMonth, isoDate } from '../lib/content';
 import { LINKS } from '../site.config';
-const talks = await getTalks();
+const { upcoming, past: talks } = await getTalksSplit();
 ---
 <Base title="Talks" description="Conference talks by Akshata Sawant at TDX, Dreamforce, Devoxx, GopherCon UK, DevOpsDays and more, with recordings.">
   <h1>Talks</h1>
-  <p class="muted">Newest first. Want me to speak at your event? <a href={LINKS.linkedin}>Message me on LinkedIn</a>.</p>
+  <p class="muted">Talks, workshops and webinars. Want me to speak at your event? <a href={LINKS.linkedin}>Message me on LinkedIn</a>.</p>
+  {upcoming.length > 0 && (
+    <>
+      <h2>Upcoming</h2>
+      <div class="up-list">{upcoming.map((t) => <UpcomingEvent talk={t} />)}</div>
+      <h2>Past talks</h2>
+    </>
+  )}
   <ul class="entries">
     {talks.map((t) => (
       <li>
@@ -28,6 +36,7 @@ const talks = await getTalks();
 </Base>
 <style>
   .talk-title { font-weight: 600; }
+  .up-list { display: grid; gap: 1rem; }
   .desc { display: block; margin-top: .2rem; }
   .links { display: flex; gap: 1rem; margin-top: .2rem; }
   .links a { font-weight: 500; }

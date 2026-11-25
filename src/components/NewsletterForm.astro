@@ -1,24 +1,29 @@
 ---
+// Email sign-up. Renders only when NEWSLETTER.action (src/site.config.ts) is set;
+// until then, visitors get a "follow on LinkedIn" prompt instead of a dead form.
 import { NEWSLETTER, LINKS } from '../site.config';
+interface Props { heading?: string }
+const { heading } = Astro.props;
 const enabled = NEWSLETTER.action.trim().length > 0;
 const id = 'nl-email';
 ---
-<form class="newsletter" action={enabled ? NEWSLETTER.action : undefined} method={NEWSLETTER.method} aria-describedby="nl-note">
-  <label for={id}>Email address</label>
-  <div class="nl-row">
-    <input id={id} name={NEWSLETTER.emailField} type="email" autocomplete="email" required placeholder="you@example.com" disabled={!enabled} />
-    <button class="button" type="submit" disabled={!enabled}>Notify me</button>
-  </div>
-  <p id="nl-note" class="small muted">
-    {enabled
-      ? 'Occasional emails about new books and writing. Unsubscribe any time.'
-      : <>Sign-up opens soon. Meanwhile, follow me on <a href={LINKS.linkedin}>LinkedIn</a> for updates.</>}
-  </p>
-</form>
+{heading && <h2>{heading}</h2>}
+{enabled ? (
+  <form class="newsletter" action={NEWSLETTER.action} method={NEWSLETTER.method}>
+    <p>Want to hear about the next book? Leave your email.</p>
+    <label for={id}>Email address</label>
+    <div class="nl-row">
+      <input id={id} name={NEWSLETTER.emailField} type="email" autocomplete="email" required placeholder="you@example.com" />
+      <button class="button" type="submit">Notify me</button>
+    </div>
+    <p class="small muted">Occasional emails about new books and writing. Unsubscribe any time.</p>
+  </form>
+) : (
+  <p class="newsletter">Want to hear about the next book? <a href={LINKS.linkedin}>Follow me on LinkedIn</a>, where I announce new books, talks and posts first.</p>
+)}
 <style>
   .newsletter label { display: block; font-weight: 600; font-size: .95rem; margin-bottom: .3rem; }
   .nl-row { display: flex; flex-wrap: wrap; gap: .5rem; }
   .nl-row input { flex: 1 1 14rem; min-width: 0; font: inherit; padding: .5rem .7rem; border: 1px solid var(--muted); border-radius: 6px; background: var(--bg); color: var(--fg); }
-  .nl-row input[disabled] { opacity: .7; }
-  .newsletter p { margin: .5rem 0 0; }
+  .newsletter p, p.newsletter { margin: .5rem 0 0; }
 </style>

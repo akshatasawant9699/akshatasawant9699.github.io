@@ -34,7 +34,6 @@ src/
   pages/                one file per page
 public/
   og-default.png        default social share image (1200x630)
-  resume.pdf            PLACEHOLDER: replace with your résumé (no phone or email)
 ```
 
 ## Adding content
@@ -75,7 +74,9 @@ Use `source: external` for videos made for Salesforce, so they link to the offic
 
 **Automatic:** at build time the site also reads the RSS feeds of the public playlists listed in `YOUTUBE.playlists` (`src/site.config.ts`) and adds any video uploaded by your channel that isn't already in `videos.yaml`, grouped by playlist. The workflow rebuilds daily at 06:17 UTC, so new uploads show up within a day. To add a playlist, paste its ID (the `list=` part of the URL). To hide or rename an auto-added video, add it to `videos.yaml` (curated entries win). If YouTube is unreachable, the build continues with `videos.yaml` only.
 
-### A talk or project
+### A talk, workshop or project
+
+For an upcoming event, give `date` a full time (e.g. `2026-12-10T15:00:00Z`) and add a `register:` link: it shows under **Upcoming** on the home page and /talks until it has passed, then moves to past talks on the next daily rebuild. Add `recording:` afterwards.
 
 Add an entry to `src/data/talks.yaml` or `src/data/projects.yaml`, following the existing entries. Schemas are in `src/content.config.ts`.
 
@@ -86,14 +87,13 @@ Items marked **PLACEHOLDER** (or `placeholder: true`) are seed content to replac
 - `src/content/posts/why-eval-tested-agents.md`
 - `src/content/posts/notes-on-mcp-tool-design.mdx`
 - `src/content/posts/draft-example.md` (a draft, to show that drafts are excluded)
-- `public/resume.pdf`
 - the newsletter form (see below)
 
 Everything else (blog links, videos, talks, projects, timeline) is real. Talk dates are approximate (month of the recording), so check them.
 
 ## Newsletter / book sign-up form
 
-The form posts to the URL in `NEWSLETTER.action` in `src/site.config.ts`. While that's empty, the form is disabled and shows a "Sign-up opens soon" note.
+The form posts to the URL in `NEWSLETTER.action` in `src/site.config.ts`. While that's empty, no form is shown; visitors see a "Follow me on LinkedIn" prompt instead.
 
 To turn it on, sign up with a provider that accepts a plain HTML form post and paste its endpoint:
 

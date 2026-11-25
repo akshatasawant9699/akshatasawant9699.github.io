@@ -10,7 +10,6 @@ import { BOOK } from '../site.config';
   <ul>
     {BOOK.editions.map((e) => <li><a href={e.url}>{e.label} on Amazon</a></li>)}
   </ul>
-  <h2>Hear about the next one</h2>
-  <div class="card"><NewsletterForm /></div>
+  <NewsletterForm heading="Hear about the next one" />
 </Base>
 <style>.lede { font-size: 1.15rem; }</style>

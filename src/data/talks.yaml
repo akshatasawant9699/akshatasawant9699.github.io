@@ -1,4 +1,14 @@
 # Talks, newest first by date. Dates are approximate (month of the event/recording).
+# Future dates show under "Upcoming" (home page and /talks) until the event has passed;
+# the daily rebuild moves them to past talks automatically. Use a full time for upcoming events.
+- id: airmeet-2026-ai-assistants-crm-claude
+  title: Build AI-Powered Assistants for Enterprise CRM with Claude
+  event: Airmeet
+  kind: workshop
+  date: 2026-12-10T15:00:00Z
+  location: Online, 3:00–4:00 PM GMT
+  register: https://www.airmeet.com/e/e1459430-e766-11f1-ab00-97f12976264f
+  description: A hands-on, 60-minute session connecting Claude to Salesforce with the Headless 360 MCP Server. Create and analyse CRM data with natural language, see how Salesforce permissions govern access, and learn why explicit business rules matter for reliable AI decisions.
 - id: tdx-2026-data-cloud-tips
   title: 5 Pro Tips for Data Cloud Development
   event: TDX 2026

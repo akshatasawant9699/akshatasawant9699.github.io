@@ -1,0 +1,20 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { formatFullDate } from '../lib/content';
+interface Props { talk: CollectionEntry<'talks'>; headingLevel?: 'h2' | 'h3' }
+const { talk, headingLevel: H = 'h3' } = Astro.props;
+const { title, event, kind, date, location, description, register } = talk.data;
+---
+<article class="card upcoming">
+  <p class="eyebrow"><span class="badge">Upcoming {kind}</span></p>
+  <H class="up-title">{title}</H>
+  <p class="small muted"><time datetime={date.toISOString()}>{formatFullDate(date)}</time>{location && <> · {location}</>} · {event}</p>
+  {description && <p>{description}</p>}
+  {register && <p><a class="button" href={register}>Register<span class="visually-hidden">: {title}</span></a></p>}
+</article>
+<style>
+  .upcoming { border-color: var(--accent); }
+  .eyebrow { margin: 0 0 .4rem; }
+  .up-title { margin: 0 0 .25rem; font-size: 1.15rem; }
+  .upcoming p:last-child { margin-bottom: 0; }
+</style>
