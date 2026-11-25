@@ -1,0 +1,16 @@
+---
+import Base from '../layouts/Base.astro';
+import NewsletterForm from '../components/NewsletterForm.astro';
+import { BOOK } from '../site.config';
+---
+<Base title="Book" description="MuleSoft for Salesforce Developers, co-authored by Akshata Sawant, now in its second edition. Sign up to hear about the next book.">
+  <h1>{BOOK.title}</h1>
+  <p class="lede">{BOOK.subtitle}.</p>
+  <p>A practical guide for Salesforce developers getting started with MuleSoft: building, testing and deploying integrations and APIs with Anypoint Platform.</p>
+  <ul>
+    {BOOK.editions.map((e) => <li><a href={e.url}>{e.label} on Amazon</a></li>)}
+  </ul>
+  <h2>Hear about the next one</h2>
+  <div class="card"><NewsletterForm /></div>
+</Base>
+<style>.lede { font-size: 1.15rem; }</style>

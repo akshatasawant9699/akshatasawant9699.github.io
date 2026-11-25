@@ -1,0 +1,27 @@
+---
+import Base from '../layouts/Base.astro';
+import { getProjects } from '../lib/content';
+const projects = await getProjects();
+const statusLabel = { building: 'Building in public', active: '', archived: 'Archived' } as const;
+---
+<Base title="Projects" description="Open-source projects by Akshata Sawant: eval-tested agents, MCP servers, Document AI tooling and more.">
+  <h1>Projects</h1>
+  <p class="muted">Open-source work, built on free developer orgs and made-up data.</p>
+  <div class="projects">
+    {projects.map((p) => (
+      <article class="card">
+        <h2 class="project-title"><a href={p.data.url}>{p.data.name}</a>
+          {statusLabel[p.data.status] && <span class="badge">{statusLabel[p.data.status]}</span>}
+          {p.data.placeholder && <span class="badge">Placeholder</span>}
+        </h2>
+        <p>{p.data.description}</p>
+        <p class="small muted">{p.data.stack.join(' · ')}</p>
+      </article>
+    ))}
+  </div>
+</Base>
+<style>
+  .projects { display: grid; gap: 1rem; }
+  .project-title { font-size: 1.1rem; margin: 0 0 .4rem; display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; }
+  .card p:last-child { margin: 0; }
+</style>

@@ -1,0 +1,34 @@
+---
+import Base from '../layouts/Base.astro';
+import { getTalks, formatMonth, isoDate } from '../lib/content';
+import { LINKS } from '../site.config';
+const talks = await getTalks();
+---
+<Base title="Talks" description="Conference talks by Akshata Sawant at TDX, Dreamforce, Devoxx, GopherCon UK, DevOpsDays and more, with recordings.">
+  <h1>Talks</h1>
+  <p class="muted">Newest first. Want me to speak at your event? <a href={LINKS.linkedin}>Message me on LinkedIn</a>.</p>
+  <ul class="entries">
+    {talks.map((t) => (
+      <li>
+        <span class="talk-title">{t.data.title}</span>
+        {t.data.placeholder && <span class="badge">Placeholder</span>}
+        <span class="meta">
+          {t.data.event} · <time datetime={isoDate(t.data.date)}>{formatMonth(t.data.date)}</time>{t.data.location && <> · {t.data.location}</>}
+        </span>
+        {t.data.description && <span class="desc small">{t.data.description}</span>}
+        {(t.data.recording || t.data.slides) && (
+          <span class="links small">
+            {t.data.recording && <a href={t.data.recording}>Recording<span class="visually-hidden">: {t.data.title}, {t.data.event}</span></a>}
+            {t.data.slides && <a href={t.data.slides}>Slides<span class="visually-hidden">: {t.data.title}</span></a>}
+          </span>
+        )}
+      </li>
+    ))}
+  </ul>
+</Base>
+<style>
+  .talk-title { font-weight: 600; }
+  .desc { display: block; margin-top: .2rem; }
+  .links { display: flex; gap: 1rem; margin-top: .2rem; }
+  .links a { font-weight: 500; }
+</style>
