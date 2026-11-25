@@ -21,6 +21,19 @@ export const LINKS = {
   rss: '/rss.xml',
 };
 
+// YouTube feeds read at build time (no API key needed). New uploads by `channelName`
+// in these public playlists are added to /videos automatically; CI rebuilds daily.
+// Videos already listed in src/data/videos.yaml are not duplicated.
+export const YOUTUBE = {
+  channelName: 'Akshata Sawant',
+  playlists: [
+    'PLH2RLGuvkSSVzbzI5aqrBq41Qdjj3C8rZ', // Get Started with AI
+    'PLH2RLGuvkSSVZCmXF4eDjTYPrscyCuAhJ', // Data Cloud
+    'PLH2RLGuvkSSUEl6Q4tAJchoK8JYCm4CkX', // Global Technical Conference playlist
+    'PLH2RLGuvkSSVfNA0RITZ7Ge_1W0UvrMxu', // Podcasts, Webinars and Meetups
+  ],
+};
+
 export const BOOK = {
   title: 'MuleSoft for Salesforce Developers',
   subtitle: 'Co-authored, now in its second edition',

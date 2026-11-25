@@ -1,6 +1,8 @@
 import { defineCollection } from 'astro:content';
 import { glob, file } from 'astro/loaders';
 import { z } from 'astro/zod';
+import { youtubeVideosLoader } from './lib/youtube-loader';
+import { YOUTUBE } from './site.config';
 
 // Writing. Local posts get a page at /writing/<file-name>/.
 // Posts with `externalUrl` (e.g. Salesforce Developers Blog) are listed and link out.
@@ -20,8 +22,9 @@ const posts = defineCollection({
 
 // Videos. source "own" = embeddable from my channel (click-to-load);
 // "external" = official copy elsewhere, so we link out instead of embedding.
+// Curated videos come from videos.yaml; new uploads are pulled from YouTube RSS at build time.
 const videos = defineCollection({
-  loader: file('./src/data/videos.yaml'),
+  loader: youtubeVideosLoader({ path: './src/data/videos.yaml', ...YOUTUBE }),
   schema: z.object({
     title: z.string(),
     date: z.coerce.date(),

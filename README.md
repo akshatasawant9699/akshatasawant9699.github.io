@@ -73,6 +73,8 @@ Add an entry to `src/data/videos.yaml`:
 
 Use `source: external` for videos made for Salesforce, so they link to the official copy.
 
+**Automatic:** at build time the site also reads the RSS feeds of the public playlists listed in `YOUTUBE.playlists` (`src/site.config.ts`) and adds any video uploaded by your channel that isn't already in `videos.yaml`, grouped by playlist. The workflow rebuilds daily at 06:17 UTC, so new uploads show up within a day. To add a playlist, paste its ID (the `list=` part of the URL). To hide or rename an auto-added video, add it to `videos.yaml` (curated entries win). If YouTube is unreachable, the build continues with `videos.yaml` only.
+
 ### A talk or project
 
 Add an entry to `src/data/talks.yaml` or `src/data/projects.yaml`, following the existing entries. Schemas are in `src/content.config.ts`.
@@ -107,7 +109,7 @@ Buttondown, Kit (ConvertKit), Mailchimp (use the form's `action` URL; the field 
 
 ## Deploying
 
-Every push to `main` runs `.github/workflows/deploy.yml`:
+Every push to `main` (and a daily schedule) runs `.github/workflows/deploy.yml`:
 
 1. `npm ci` and `npm run build`
 2. **Link check** with lychee (fails on broken links; LinkedIn and Amazon are excluded because they block bots)

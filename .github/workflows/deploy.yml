@@ -5,6 +5,8 @@ on:
     branches: [main]
   pull_request:
   workflow_dispatch:
+  schedule:
+    - cron: '17 6 * * *' # daily rebuild picks up new YouTube uploads
 
 permissions:
   contents: read

@@ -6,15 +6,25 @@ import { LINKS } from '../site.config';
 const videos = await getVideos();
 const own = videos.filter((v) => v.data.source === 'own');
 const external = videos.filter((v) => v.data.source === 'external');
+// Group my uploads by playlist, newest playlist first (videos are already newest first).
+const groups = new Map<string, typeof own>();
+for (const v of own) {
+  const key = v.data.series ?? 'More videos';
+  groups.set(key, [...(groups.get(key) ?? []), v]);
+}
 ---
 <Base title="Videos" description="Videos by Akshata Sawant: Agentforce Decoded on Salesforce Developers, and hands-on tutorials on AI agents, MCP and Document AI.">
   <h1>Videos</h1>
-  <p class="muted">Tutorials from <a href={LINKS.youtubePlaylists}>my YouTube channel</a> play here when you click them. Videos I made for <a href={LINKS.salesforceDevs}>Salesforce Developers</a> link to the official copies.</p>
+  <p class="muted">Videos from <a href={LINKS.youtubePlaylists}>my YouTube channel</a> play here when you click them. Videos I made for <a href={LINKS.salesforceDevs}>Salesforce Developers</a> link to the official copies.</p>
 
   <h2>Agentforce Decoded, on Salesforce Developers</h2>
   <VideoGrid videos={external} />
 
-  <h2>Tutorials from my channel</h2>
-  <VideoGrid videos={own} />
+  {[...groups].map(([series, items]) => (
+    <>
+      <h2>{series}</h2>
+      <VideoGrid videos={items} />
+    </>
+  ))}
   <p class="section-more"><a href={LINKS.youtubePlaylists}>All playlists on YouTube →</a></p>
 </Base>
