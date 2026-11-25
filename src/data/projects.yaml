@@ -1,0 +1,44 @@
+- id: sf-ops-agent
+  name: sf-ops-agent
+  description: An eval-tested Salesforce ops agent, built in public. An MCP server that lets an LLM agent look up accounts, summarise open cases and create follow-up tasks in a Developer Edition org, with a golden dataset, an LLM-as-judge eval harness and evals in CI.
+  url: https://github.com/akshatasawant9699/sf-ops-agent
+  repo: https://github.com/akshatasawant9699/sf-ops-agent
+  stack: [Python, MCP, LLM evals, pytest]
+  status: building
+  featured: true
+  order: 1
+- id: datacloud-documentai
+  name: Document AI Gateway
+  description: Extract structured data, with confidence scores, from invoices, orders and forms using Data Cloud Document AI.
+  url: https://github.com/akshatasawant9699/datacloud-documentai
+  repo: https://github.com/akshatasawant9699/datacloud-documentai
+  stack: [Python, Apex, LWC, Flow]
+  order: 2
+- id: adlc-whitepaper
+  name: ADLC reference implementation
+  description: The Agent Development Lifecycle in code, covering all five phases with the Agentforce Python SDK and AgentforceDX.
+  url: https://github.com/akshatasawant9699/ADLC_Whitepaper
+  repo: https://github.com/akshatasawant9699/ADLC_Whitepaper
+  stack: [Python, AgentforceDX]
+  order: 3
+- id: document-ai-lab
+  name: Document AI Lab
+  description: A hands-on learning portal for Data Cloud Document AI, with recipes, sample documents and API guides.
+  url: https://github.com/akshatasawant9699/document-ai-lab
+  repo: https://github.com/akshatasawant9699/document-ai-lab
+  stack: [TypeScript]
+  order: 4
+- id: connect-agent-with-mcp-server
+  name: Connect an agent with an MCP server
+  description: Notebook walkthrough for connecting an Agentforce agent to an MCP server.
+  url: https://github.com/akshatasawant9699/connect-agent-with-mcp-server
+  repo: https://github.com/akshatasawant9699/connect-agent-with-mcp-server
+  stack: [Python, Jupyter]
+  order: 5
+- id: focusflow
+  name: FocusFlow
+  description: An open-source, self-hostable focus companion for ADHD brains.
+  url: https://github.com/akshatasawant9699/focusflow
+  repo: https://github.com/akshatasawant9699/focusflow
+  stack: [Next.js, TypeScript, Postgres]
+  order: 6

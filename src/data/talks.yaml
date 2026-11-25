@@ -1,0 +1,62 @@
+# Talks, newest first by date. Dates are approximate (month of the event/recording).
+- id: tdx-2026-data-cloud-tips
+  title: 5 Pro Tips for Data Cloud Development
+  event: TDX 2026
+  date: 2026-05-01
+  recording: https://www.youtube.com/watch?v=uwogPlo6hag
+  description: Accelerate Data Cloud builds with Flow, Data Graphs, Calculated Insights and APIs.
+- id: oxford-ai-summit-2025
+  title: Autonomous Agents
+  event: Oxford AI Summit 2025
+  date: 2025-06-01
+  location: Oxford, UK
+- id: tdx-2025-connected-agents
+  title: Build Connected Agents with Agentforce and MuleSoft
+  event: TDX 2025
+  date: 2025-03-05
+  recording: https://www.youtube.com/watch?v=I9YMhgBvu40
+  description: Build agents with Agentforce and connect APIs using MuleSoft Topic Center and API Catalog.
+- id: dreamforce-2023-mulesoft-winter24
+  title: "MuleSoft: Winter '24 Developer Preview (Release Readiness Live)"
+  event: Dreamforce 2023
+  date: 2023-09-13
+  location: San Francisco, USA
+  recording: https://www.youtube.com/watch?v=_q1dla4Usng
+- id: gophercon-uk-2023-zero-trust
+  title: Zero Trust Security for your APIs
+  event: GopherCon UK 2023
+  date: 2023-08-16
+  location: London, UK
+  recording: https://www.youtube.com/watch?v=wr-tHM-n3zU
+- id: london-sf-devs-mulesoft-101
+  title: MuleSoft 101
+  event: London Salesforce Developers
+  date: 2023-06-28
+  location: London, UK
+  recording: https://www.youtube.com/watch?v=iFRn1e3iW-4
+- id: devopsdays-geneva-2023-zero-trust
+  title: Zero Trust Security for your APIs
+  event: DevOpsDays Geneva 2023
+  date: 2023-05-01
+  location: Geneva, Switzerland
+  recording: https://www.youtube.com/watch?v=Xb6WJYx9ihU
+- id: conf42-devsecops-2022
+  title: Sustainable API Management
+  event: Conf42 DevSecOps 2022
+  date: 2022-12-01
+  recording: https://www.youtube.com/watch?v=ek-xNIdhbn0
+- id: wwcode-2022-zero-trust
+  title: Zero Trust Security for Your APIs with MuleSoft
+  event: Women Who Code Cloud
+  date: 2022-11-15
+  recording: https://www.youtube.com/watch?v=qcI_JICI10g
+- id: devoxx-2022-zero-trust
+  title: Zero Trust Security for your APIs
+  event: Devoxx 2022
+  date: 2022-10-10
+  recording: https://www.youtube.com/watch?v=PV_gOW9Tn_U
+- id: apidays-india-2022
+  title: Zero Trust Security in practice
+  event: Apidays India 2022
+  date: 2022-05-11
+  recording: https://www.youtube.com/watch?v=Jd1Zu6y2Y5k

@@ -1,0 +1,72 @@
+# Videos. Newest first is handled by the site (sorted by date).
+# source: own      -> from my channel, embedded with click-to-load
+# source: external -> official copy on another channel (e.g. Salesforce Developers); we link out
+- id: agentforce-python-sdk-decoded
+  title: Build and Manage Agents with Agentforce Python SDK
+  date: 2025-09-15
+  youtubeId: rQPuJvLhsk0
+  source: external
+  channel: Salesforce Developers
+  series: Agentforce Decoded
+- id: document-ai-agentforce-decoded
+  title: Integrate Data Cloud's Document AI with Agentforce
+  date: 2025-09-01
+  youtubeId: N48sT3jg9p8
+  source: external
+  channel: Salesforce Developers
+  series: Agentforce Decoded
+- id: mulesoft-topic-center-decoded
+  title: Explore MuleSoft for Agentforce with Topic Center and API Catalog
+  date: 2025-06-15
+  youtubeId: _rkKH_pokj4
+  source: external
+  channel: Salesforce Developers
+  series: Agentforce Decoded
+- id: document-ai-get-started
+  title: Get Started with Document AI
+  date: 2025-08-11
+  youtubeId: FGxKw1J_tnE
+  source: own
+  channel: Akshata Sawant
+  series: Data Cloud
+  description: Define your first Document Schema to extract information from unstructured data.
+- id: document-ai-external
+  title: Invoking Document AI Externally
+  date: 2025-08-11
+  youtubeId: dd0MAv9hzSU
+  source: own
+  channel: Akshata Sawant
+  series: Data Cloud
+  description: Call Data Cloud's Document AI from a web app and from Postman.
+- id: agentforce-mulesoft-connector
+  title: Agentforce MuleSoft Connector
+  date: 2025-08-08
+  youtubeId: agPCsCThplA
+  source: own
+  channel: Akshata Sawant
+  series: Get Started with AI
+  description: Use MuleSoft's Agentforce Connector to integrate with Agentforce in a few steps.
+- id: agentforce-python-sdk-get-started
+  title: Get Started with Agentforce Python SDK
+  date: 2025-07-08
+  youtubeId: AwYuDZCDlrw
+  source: own
+  channel: Akshata Sawant
+  series: Get Started with AI
+  description: Build, manage and test Agentforce agents with the open-source Python SDK.
+- id: first-mcp-server-with-agent
+  title: Connect your first MCP Server with Agent
+  date: 2025-07-08
+  youtubeId: LHfBhVflDT8
+  source: own
+  channel: Akshata Sawant
+  series: Get Started with AI
+  description: Create an MCP server with Zapier and connect it to an agent, built in Google Colab.
+- id: first-agent-openai
+  title: Build your first agent with OpenAI
+  date: 2025-07-07
+  youtubeId: 6aHop8_43Ek
+  source: own
+  channel: Akshata Sawant
+  series: Get Started with AI
+  description: Build a simple deterministic agent with the OpenAI Python SDK.
