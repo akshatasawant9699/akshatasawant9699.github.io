@@ -127,6 +127,14 @@ Pull requests run steps 1 and 2 only.
 
 One-time setup: **Settings → Pages → Build and deployment → Source → GitHub Actions**.
 
+## Search engines
+
+1. [Google Search Console](https://search.google.com/search-console): **Add property → URL prefix** → enter the site URL → choose **HTML tag**, and copy the `content="…"` value into `VERIFICATION.google` in `src/site.config.ts`. Push, wait for the deploy, then click **Verify**.
+2. In Search Console, **Sitemaps** → submit `sitemap-index.xml`.
+3. [Bing Webmaster Tools](https://www.bing.com/webmasters): sign in and choose **Import from Google Search Console** (it imports the site and sitemap). Bing also feeds DuckDuckGo, Yahoo and ChatGPT search.
+
+If you move to a custom domain, add the new domain as a **Domain** property (verified by a DNS TXT record) and use Search Console's **Change of address** tool.
+
 ## Using a custom domain later
 
 1. Buy the domain (e.g. `example.dev`).

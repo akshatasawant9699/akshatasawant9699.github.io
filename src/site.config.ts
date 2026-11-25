@@ -111,3 +111,11 @@ export const LINKEDIN_VIDEOS = [
     description: 'A tour of the HXL Playground and its components.',
   },
 ];
+
+// Search engine ownership checks. Paste only the content="..." value of each meta tag.
+// Google Search Console: Add property -> URL prefix -> HTML tag. Bing Webmaster Tools: HTML Meta Tag
+// (or skip this and use Bing's "Import from Google Search Console").
+export const VERIFICATION = {
+  google: '',
+  bing: '',
+};
