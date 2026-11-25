@@ -92,6 +92,12 @@ Every build publishes [`/content-inventory.csv`](https://akshatasawant.dev/conte
 
 Posts can still have `tags:` (used in the RSS feed), but tags aren't shown on the site.
 
+## Speaker kit
+
+`/speaker-kit` has short and long bios, a downloadable headshot (`public/press/`), topics, formats and a "Spoken at" list. Edit `SPEAKER` and `SPOKEN_AT` in `src/site.config.ts`. The first six `SPOKEN_AT` entries also appear on the home page. `/speaker-kit/bio.txt` is generated from the same bios.
+
+Home and speaker kit pages include schema.org `Person` structured data (`src/lib/jsonld.ts`), so search engines link the site, profiles and book to one person.
+
 ## Contact form
 
 `/contact` has a form that emails messages to you through [Web3Forms](https://web3forms.com) (free, 250 messages a month). Your email address is never published: it's linked to an access key on Web3Forms' side.

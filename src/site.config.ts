@@ -127,3 +127,26 @@ export const VERIFICATION = {
 export const CONTACT = {
   web3formsKey: '',
 };
+
+// Events shown in the "Spoken at" line (home page and /speaker-kit). Text only, no logos.
+export const SPOKEN_AT = [
+  'Dreamforce', 'TDX', 'Devoxx UK', 'Apidays', 'GopherCon UK', 'DevOpsDays Geneva',
+  "London's Calling", 'Oxford AI Summit', 'Conf42', 'Women Who Code',
+];
+
+// Speaker kit (/speaker-kit). Bios are written without pronouns; edit freely.
+export const SPEAKER = {
+  shortBio:
+    'Akshata Sawant is a Lead Developer Advocate at Salesforce in London, helping developers build secure, AI-ready integrations and agents with Agentforce, MCP, Data Cloud and MuleSoft. Akshata co-authored MuleSoft for Salesforce Developers and has led MuleSoft meetups in Mumbai and London for more than seven years.',
+  longBio: [
+    'Akshata Sawant is a Lead Developer Advocate at Salesforce, based in London, who helps developers and architects build secure, AI-ready integrations and agents. Akshata works across Agentforce, MCP, the Headless Experience Layer, Data Cloud Document AI and MuleSoft, and builds demos for keynotes at Dreamforce and TDX.',
+    'Before Salesforce, Akshata spent several years on integration and API projects at EPAM Systems, Apisero and Capgemini. Akshata is the co-author of MuleSoft for Salesforce Developers, now in its second edition, was recognised in the Rising Star of the Year category at the Digital Revolution Awards 2024, was a MuleSoft Ambassador from 2020 to 2022, and has led MuleSoft meetups in Mumbai and London for more than seven years.',
+  ],
+  topics: [
+    { title: 'Building and testing AI agents', detail: 'Agentforce, the Agentforce Python SDK, connected agents and evaluating agents before they ship.' },
+    { title: 'MCP and AI-assisted development', detail: 'MCP servers, the Headless Experience Layer and building Salesforce apps with AI coding tools such as Claude Code.' },
+    { title: 'Data Cloud and Document AI', detail: 'Data Cloud APIs, and turning unstructured documents into structured data for agents and integrations.' },
+    { title: 'API security and integration with MuleSoft', detail: 'Zero Trust security, API policies, governance and reuse, and MuleSoft for Salesforce developers.' },
+  ],
+  formats: ['Conference talks', 'Hands-on workshops', 'Webinars and livestreams', 'Podcasts and interviews', 'Meetups'],
+};

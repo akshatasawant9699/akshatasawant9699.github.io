@@ -8,7 +8,8 @@ import Timeline from '../components/Timeline.astro';
 import SocialLinks from '../components/SocialLinks.astro';
 import { Content as Now, frontmatter as nowMeta } from '../now.md';
 import headshot from '../assets/headshot.jpg';
-import { SITE, BOOK } from '../site.config';
+import { SITE, BOOK, SPOKEN_AT } from '../site.config';
+import { personJsonLd } from '../lib/jsonld';
 import UpcomingEvent from '../components/UpcomingEvent.astro';
 import { getPosts, getVideos, getProjects, getTalksSplit, formatDate, isoDate } from '../lib/content';
 
@@ -16,15 +17,18 @@ const posts = (await getPosts()).slice(0, 3);
 const videos = (await getVideos()).slice(0, 3);
 const featured = (await getProjects()).find((p) => p.data.featured);
 const { upcoming } = await getTalksSplit();
+const jsonLd = personJsonLd(Astro.site!);
 const nowUpdated = new Date(nowMeta.updated);
 ---
 <Base>
+  <script type="application/ld+json" slot="head" set:html={jsonLd} />
   <section class="intro" aria-labelledby="intro-name">
     <Image src={headshot} alt="Portrait of Akshata Sawant, smiling, against a blue background" width={176} height={176} widths={[176, 352]} sizes="176px" loading="eager" fetchpriority="high" class="photo" />
     <div>
       <h1 id="intro-name">{SITE.name}</h1>
       <p class="lede">{SITE.positioning}</p>
       <p class="muted">Lead Developer Advocate at Salesforce, based in London. I write, speak and ship open-source examples about AI agents, MCP and integration.</p>
+      <p class="small muted spoken">Spoken at {SPOKEN_AT.slice(0, 6).join(' · ')} and more. <a href="/talks/">See all talks</a></p>
       <SocialLinks />
     </div>
   </section>

@@ -3,13 +3,12 @@ import Base from '../layouts/Base.astro';
 import UpcomingEvent from '../components/UpcomingEvent.astro';
 import VideoGrid from '../components/VideoGrid.astro';
 import { getTalksSplit, getVideos, isSpeakingVideo, youtubeIdOf, formatMonth, isoDate } from '../lib/content';
-import { LINKS } from '../site.config';
 const { upcoming, past: talks } = await getTalksSplit();
 const meetups = (await getVideos()).filter(isSpeakingVideo);
 ---
 <Base title="Talks" description="Talks by Akshata Sawant at TDX, Dreamforce, Devoxx, APIdays, GopherCon UK, DevOpsDays, London's Calling and MuleSoft meetups, with recordings.">
   <h1>Talks</h1>
-  <p class="muted">All my speaking in one place: conferences, workshops, webinars and the MuleSoft meetups I run. Want me to speak at your event? <a href={LINKS.linkedin}>Message me on LinkedIn</a>.</p>
+  <p class="muted">All my speaking in one place: conferences, workshops, webinars and the MuleSoft meetups I run. Organising an event? See my <a href="/speaker-kit/">speaker kit</a> or <a href="/contact/">get in touch</a>.</p>
   {upcoming.length > 0 && (
     <>
       <h2>Upcoming</h2>
