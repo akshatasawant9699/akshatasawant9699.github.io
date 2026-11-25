@@ -164,6 +164,20 @@
   source: external
   channel: Digital Dee
   series: Interviews and guest appearances
+- id: devoxx-uk-2024-build-propulsion-lab
+  title: "Build Propulsion Lab at Devoxx UK: AI and developer productivity (with Baruch Sadogursky)"
+  date: 2024-05-08
+  youtubeId: UjTxm-9XCpM
+  source: external
+  channel: Develocity
+  series: Interviews and guest appearances
+- id: stoplight-women-in-apis-2023
+  title: "Creating a Place of Belonging: Conversation with Zoe & Akshata"
+  date: 2023-03-01
+  youtubeId: CST2tHJpcJY
+  source: external
+  channel: Stoplight
+  series: Interviews and guest appearances
 # Meetups on my channel
 - id: london-meetup-data-cloud-2024
   title: "London MuleSoft Meetup: Power Up with Data Cloud and MuleSoft"
@@ -171,32 +185,32 @@
   youtubeId: k_NN2EvoU2c
   source: own
   channel: Akshata Sawant
-  series: MuleSoft Meetups
+  series: Podcasts, Webinars and Meetups
 - id: manchester-meetup-8
   title: "Manchester MuleSoft Meetup #8: UAPIM and API Governance"
   date: 2022-09-29
   youtubeId: JZ79uc1Vc5c
   source: own
   channel: Akshata Sawant
-  series: MuleSoft Meetups
+  series: Podcasts, Webinars and Meetups
 - id: mumbai-meetup-16
   title: "Mumbai MuleSoft Meetup #16 (Part 1)"
   date: 2021-02-28
   youtubeId: f0n4jquI8mk
   source: own
   channel: Akshata Sawant
-  series: MuleSoft Meetups
+  series: Podcasts, Webinars and Meetups
 - id: mumbai-meetup-14
   title: "Mumbai MuleSoft Meetup #14: Visualizing Mule Flow Execution Graph with Diagrams"
   date: 2020-10-27
   youtubeId: aDoO36uDvCw
   source: own
   channel: Akshata Sawant
-  series: MuleSoft Meetups
+  series: Podcasts, Webinars and Meetups
 - id: mulesoft-101-2020
   title: MuleSoft 101
   date: 2020-08-29
   youtubeId: MzZ6Y0lae1s
   source: own
   channel: Akshata Sawant
-  series: MuleSoft Meetups
+  series: Podcasts, Webinars and Meetups

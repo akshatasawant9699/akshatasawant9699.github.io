@@ -95,3 +95,19 @@ export const CERTIFICATIONS = [
   'Pragmatic Institute PMC Level I',
   'The Oxford AI Summit 2025: Autonomous Agents, University of Oxford',
 ];
+
+// Videos published natively on LinkedIn (listed on /videos with a link to the post), newest first.
+export const LINKEDIN_VIDEOS = [
+  {
+    title: 'Headless Experience Layer (HXL) in Slackbot',
+    date: '2026-11-17',
+    url: 'https://www.linkedin.com/posts/akshatasawant02_hxl-agentforce-slack-activity-7528421469391917058-H3oN',
+    description: 'A technical walkthrough: MCP server connections and tool permissions for HXL widgets in Slackbot.',
+  },
+  {
+    title: 'Understand the fundamentals of HXL with the HXL Playground',
+    date: '2026-11-11',
+    url: 'https://www.linkedin.com/posts/akshatasawant02_hxl-agentforce-salesforce-activity-7526292319546015744-6r32',
+    description: 'A tour of the HXL Playground and its components.',
+  },
+];

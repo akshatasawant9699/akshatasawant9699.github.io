@@ -48,6 +48,10 @@ const talks = defineCollection({
     recording: z.url().optional(),
     slides: z.url().optional(),
     register: z.url().optional(),
+    // Upcoming events: a banner like the registration page. `badge` is the pill text,
+    // `host` the organiser shown on the banner.
+    badge: z.string().optional(),
+    host: z.string().optional(),
     description: z.string().optional(),
     placeholder: z.boolean().default(false),
   }),

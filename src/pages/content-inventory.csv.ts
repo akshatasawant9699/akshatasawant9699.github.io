@@ -1,8 +1,8 @@
 // Every resource shown on the site, as CSV (generated at build time, so it includes
 // videos added automatically from YouTube). Import into Google Sheets with:
 //   =IMPORTDATA("https://akshatasawant9699.github.io/content-inventory.csv")
-import { getPosts, postHref, getVideos, getTalks, getProjects, isoDate } from '../lib/content';
-import { BOOK, RECOGNITION, CERTIFICATIONS } from '../site.config';
+import { getPosts, postHref, getVideos, getTalks, getProjects, isoDate, isSpeakingVideo } from '../lib/content';
+import { BOOK, RECOGNITION, CERTIFICATIONS, LINKEDIN_VIDEOS } from '../site.config';
 
 const HEADER = ['Type', 'Title', 'Date', 'Publication / channel / event', 'URL', 'Shown on', 'Source file', 'Notes'];
 
@@ -37,10 +37,14 @@ export async function GET() {
       isoDate(v.data.date),
       v.data.channel,
       `https://www.youtube.com/watch?v=${v.data.youtubeId}`,
-      `/videos/ (${v.data.series ?? 'More videos'})`,
+      isSpeakingVideo(v) ? '/talks/ (Meetups and community sessions)' : `/videos/ (${v.data.series ?? 'More videos'})`,
       auto ? 'Auto-added from YouTube playlist' : 'src/data/videos.yaml',
       '',
     ]);
+  }
+
+  for (const v of LINKEDIN_VIDEOS) {
+    rows.push(['Video (LinkedIn)', v.title, v.date, 'LinkedIn', v.url, '/videos/ (On LinkedIn)', 'src/site.config.ts (LINKEDIN_VIDEOS)', '']);
   }
 
   for (const t of await getTalks()) {

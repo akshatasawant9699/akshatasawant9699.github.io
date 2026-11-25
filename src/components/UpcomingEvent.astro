@@ -1,13 +1,28 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
+import headshot from '../assets/headshot.jpg';
 import { formatFullDate } from '../lib/content';
 interface Props { talk: CollectionEntry<'talks'>; headingLevel?: 'h2' | 'h3' }
 const { talk, headingLevel: H = 'h3' } = Astro.props;
-const { title, event, kind, date, location, description, register } = talk.data;
+const { title, event, kind, date, location, description, register, badge, host } = talk.data;
 ---
 <article class="card upcoming">
-  <p class="eyebrow"><span class="badge">Upcoming {kind}</span></p>
-  <H class="up-title">{title}</H>
+  {badge ? (
+    <div class="banner">
+      <div class="banner-text">
+        <p class="pill">{badge}</p>
+        <H class="banner-title">{title}</H>
+        <p class="banner-who">with Akshata Sawant{host && <> · hosted by {host}</>}</p>
+      </div>
+      <Image src={headshot} alt="" width={120} height={120} widths={[120, 240]} sizes="120px" class="banner-photo" />
+    </div>
+  ) : (
+    <>
+      <p class="eyebrow"><span class="badge">Upcoming {kind}</span></p>
+      <H class="up-title">{title}</H>
+    </>
+  )}
   <p class="small muted"><time datetime={date.toISOString()}>{formatFullDate(date)}</time>{location && <> · {location}</>} · {event}</p>
   {description && <p>{description}</p>}
   {register && <p><a class="button" href={register}>Register<span class="visually-hidden">: {title}</span></a></p>}
@@ -17,4 +32,21 @@ const { title, event, kind, date, location, description, register } = talk.data;
   .eyebrow { margin: 0 0 .4rem; }
   .up-title { margin: 0 0 .25rem; font-size: 1.15rem; }
   .upcoming p:last-child { margin-bottom: 0; }
+  /* Banner styled after the registration page: fixed light palette in both themes. */
+  .banner {
+    display: flex; align-items: center; gap: 1rem; justify-content: space-between;
+    background: #f7f2ea; color: #1c1917; border-radius: 10px;
+    padding: 1.25rem 1.25rem 1.25rem 1.5rem; margin: -.25rem -.25rem 1rem;
+  }
+  .pill {
+    display: inline-block; margin: 0 0 .6rem; padding: .2rem .75rem; border-radius: 999px;
+    background: #f4b49b; color: #1c1917; font-weight: 700; font-size: .85rem;
+  }
+  .banner-title { margin: 0 0 .4rem; font-size: 1.45rem; line-height: 1.2; font-weight: 800; color: #1c1917; }
+  .banner-who { margin: 0; font-size: .9rem; color: #44403c; }
+  .banner-photo { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; flex: none; border: 4px solid #fff; }
+  @media (max-width: 480px) {
+    .banner { flex-direction: column-reverse; align-items: flex-start; }
+    .banner-photo { width: 88px; height: 88px; }
+  }
 </style>

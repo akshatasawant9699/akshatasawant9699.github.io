@@ -20,6 +20,11 @@ export const postHref = (p: Post) => p.data.externalUrl ?? `/writing/${p.id}/`;
 export async function getVideos() {
   return (await getCollection('videos')).sort(byDateDesc);
 }
+// Meetup and community-session recordings live on /talks, not /videos.
+export const isSpeakingVideo = (v: CollectionEntry<'videos'>) => /meetup/i.test(v.data.series ?? '');
+export const youtubeIdOf = (url?: string) =>
+  url?.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([A-Za-z0-9_-]{11})/)?.[1];
+
 export async function getTalks() {
   return (await getCollection('talks')).sort(byDateDesc);
 }

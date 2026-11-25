@@ -1,9 +1,9 @@
 ---
 import Base from '../layouts/Base.astro';
 import VideoGrid from '../components/VideoGrid.astro';
-import { getVideos } from '../lib/content';
-import { LINKS } from '../site.config';
-const videos = await getVideos();
+import { getVideos, isSpeakingVideo, formatMonth } from '../lib/content';
+import { LINKS, LINKEDIN_VIDEOS } from '../site.config';
+const videos = (await getVideos()).filter((v) => !isSpeakingVideo(v));
 const own = videos.filter((v) => v.data.source === 'own');
 const external = videos.filter((v) => v.data.source === 'external');
 // Group by series, newest series first (videos are already newest first).
@@ -24,7 +24,7 @@ const heading = (series: string, items: typeof videos) => {
 ---
 <Base title="Videos" description="Videos and livestreams by Akshata Sawant: Agentforce Decoded, codeLive and AIforce in Action on Salesforce Developers, MuleSoft videos, guest appearances, meetups and tutorials.">
   <h1>Videos</h1>
-  <p class="muted">Videos from <a href={LINKS.youtubePlaylists}>my YouTube channel</a> play here when you click them. Videos I made for <a href={LINKS.salesforceDevs}>Salesforce Developers</a> link to the official copies.</p>
+  <p class="muted">Videos from <a href={LINKS.youtubePlaylists}>my YouTube channel</a> play here when you click them. Videos I made for <a href={LINKS.salesforceDevs}>Salesforce Developers</a> link to the official copies. Conference talks and meetup recordings are on <a href="/talks/">Talks</a>.</p>
 
   {bySeries(external).map(([series, items]) => (
     <>
@@ -40,4 +40,20 @@ const heading = (series: string, items: typeof videos) => {
     </>
   ))}
   <p class="section-more"><a href={LINKS.youtubePlaylists}>All playlists on YouTube →</a></p>
+
+  {LINKEDIN_VIDEOS.length > 0 && (
+    <>
+      <h2>On LinkedIn</h2>
+      <ul class="entries">
+        {LINKEDIN_VIDEOS.map((v) => (
+          <li>
+            <a href={v.url}>{v.title}<span class="visually-hidden"> (video on LinkedIn)</span></a>
+            <span class="meta">LinkedIn video · <time datetime={v.date}>{formatMonth(new Date(v.date))}</time></span>
+            {v.description && <span class="small">{v.description}</span>}
+          </li>
+        ))}
+      </ul>
+      <p class="section-more"><a href={LINKS.linkedin}>More on LinkedIn →</a></p>
+    </>
+  )}
 </Base>
