@@ -1,0 +1,15 @@
+# Link checker config (https://lychee.cli.rs). Used in CI on the built site.
+max_retries = 3
+retry_wait_time = 5
+timeout = 30
+max_concurrency = 8
+accept = ["200..=299", "403", "429"]
+index_files = ["index.html"]
+# Sites that block automated checkers; links are verified by hand.
+exclude = [
+  "^https://www\\.linkedin\\.com/",
+  "^https://www\\.amazon\\.",
+  "^https://akshatasawant9699\\.github\\.io/",
+  "^https://www\\.youtube-nocookie\\.com/",
+  "^https://fonts\\.",
+]
