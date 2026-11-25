@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 
 // When a custom domain is added, change `site` (and public/CNAME). See README.
 export default defineConfig({
-  site: 'https://akshatasawant9699.github.io',
+  site: 'https://akshatasawant.dev',
   trailingSlash: 'ignore',
   build: { format: 'directory', inlineStylesheets: 'always' },
   integrations: [mdx(), sitemap({ filter: (page) => !page.includes('/404') })],

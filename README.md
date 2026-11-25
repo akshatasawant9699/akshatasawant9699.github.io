@@ -1,4 +1,6 @@
-# akshatasawant9699.github.io
+# akshatasawant.dev
+
+Live at **https://akshatasawant.dev** (domain registered with Cloudflare; DNS on Cloudflare; hosted on GitHub Pages from this repo).
 
 Personal site of Akshata Sawant: developer advocate, author, and builder of eval-tested AI agents.
 
@@ -86,7 +88,7 @@ Edit `RECOGNITION` and `CERTIFICATIONS` in `src/site.config.ts`. They're shown o
 
 ### Content inventory (for a spreadsheet)
 
-Every build publishes [`/content-inventory.csv`](https://akshatasawant9699.github.io/content-inventory.csv): one row per post, video, talk, project, award and certification on the site, including auto-added YouTube videos. In Google Sheets, `=IMPORTDATA("https://akshatasawant9699.github.io/content-inventory.csv")` gives a tab that stays current.
+Every build publishes [`/content-inventory.csv`](https://akshatasawant.dev/content-inventory.csv): one row per post, video, talk, project, award and certification on the site, including auto-added YouTube videos. In Google Sheets, `=IMPORTDATA("https://akshatasawant.dev/content-inventory.csv")` gives a tab that stays current.
 
 ### Placeholder content
 
@@ -135,7 +137,11 @@ One-time setup: **Settings → Pages → Build and deployment → Source → Git
 
 If you move to a custom domain, add the new domain as a **Domain** property (verified by a DNS TXT record) and use Search Console's **Change of address** tool.
 
-## Using a custom domain later
+## Custom domain (akshatasawant.dev)
+
+The site uses `akshatasawant.dev` (`public/CNAME` and `site` in `astro.config.mjs`). DNS records in Cloudflare must be **DNS only** (grey cloud), not proxied, so GitHub can issue the HTTPS certificate. The steps below are how it was set up, for reference.
+
+### Setup steps
 
 1. Buy the domain (e.g. `example.dev`).
 2. At your DNS provider, add:

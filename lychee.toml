@@ -10,6 +10,7 @@ exclude = [
   "^https://www\\.linkedin\\.com/",
   "^https://www\\.amazon\\.",
   "^https://akshatasawant9699\\.github\\.io/",
+  "^https://(www\\.)?akshatasawant\\.dev/",
   "^https://www\\.youtube-nocookie\\.com/",
   "^https://fonts\\.",
 ]

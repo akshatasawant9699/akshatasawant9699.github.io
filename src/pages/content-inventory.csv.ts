@@ -1,6 +1,6 @@
 // Every resource shown on the site, as CSV (generated at build time, so it includes
 // videos added automatically from YouTube). Import into Google Sheets with:
-//   =IMPORTDATA("https://akshatasawant9699.github.io/content-inventory.csv")
+//   =IMPORTDATA("https://akshatasawant.dev/content-inventory.csv")
 import { getPosts, postHref, getVideos, getTalks, getProjects, isoDate, isSpeakingVideo } from '../lib/content';
 import { BOOK, RECOGNITION, CERTIFICATIONS, LINKEDIN_VIDEOS } from '../site.config';
 
@@ -12,7 +12,7 @@ function csv(rows: string[][]) {
 }
 
 export async function GET() {
-  const site = 'https://akshatasawant9699.github.io';
+  const site = import.meta.env.SITE.replace(/\/$/, '');
   const rows: string[][] = [];
 
   for (const p of await getPosts()) {
