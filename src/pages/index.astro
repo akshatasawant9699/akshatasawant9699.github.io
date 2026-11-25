@@ -8,7 +8,7 @@ import Timeline from '../components/Timeline.astro';
 import SocialLinks from '../components/SocialLinks.astro';
 import { Content as Now, frontmatter as nowMeta } from '../now.md';
 import headshot from '../assets/headshot.jpg';
-import { SITE, BOOK } from '../site.config';
+import { SITE, BOOK, RECOGNITION } from '../site.config';
 import UpcomingEvent from '../components/UpcomingEvent.astro';
 import { getPosts, getVideos, getProjects, getTalksSplit, formatDate, isoDate } from '../lib/content';
 
@@ -25,6 +25,7 @@ const nowUpdated = new Date(nowMeta.updated);
       <h1 id="intro-name">{SITE.name}</h1>
       <p class="lede">{SITE.positioning}</p>
       <p class="muted">Lead Developer Advocate at Salesforce, based in London. I write, speak and ship open-source examples about AI agents, MCP and integration.</p>
+      {RECOGNITION[0] && <p class="small award"><span aria-hidden="true">🏆 </span><a href={RECOGNITION[0].url ?? '/about/'}>{RECOGNITION[0].title}</a>, {RECOGNITION[0].org}</p>}
       <SocialLinks />
     </div>
   </section>

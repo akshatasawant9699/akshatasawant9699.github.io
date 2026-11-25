@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import Timeline from '../components/Timeline.astro';
 import headshot from '../assets/headshot.jpg';
-import { LINKS, BOOK } from '../site.config';
+import { LINKS, BOOK, RECOGNITION, CERTIFICATIONS } from '../site.config';
 ---
 <Base title="About" description="About Akshata Sawant: Lead Developer Advocate at Salesforce in London, co-author, speaker and MuleSoft community leader.">
   <h1>About</h1>
@@ -12,16 +12,23 @@ import { LINKS, BOOK } from '../site.config';
     <p>I'm Akshata Sawant, a Lead Developer Advocate at Salesforce, based in London. I help developers and architects build secure, AI-ready integrations and agents, through writing, speaking and open-source examples.</p>
     <p>I have about nine years of experience in software, four of them at Salesforce. My work covers Agentforce, MCP, the Headless Experience Layer, Data Cloud Document AI and MuleSoft, and I build demos for keynotes at Dreamforce and TDX.</p>
     <p>Before Salesforce I was a Senior Software Engineer at EPAM Systems in London, and worked on integration and API projects at Apisero and Capgemini in India.</p>
-    <p>I co-authored <a href="/book/"><em>{BOOK.title}</em></a>, now in its second edition. I've led MuleSoft meetups in Mumbai and London for more than seven years, and was a MuleSoft Ambassador from 2020 to 2022.</p>
+    <p>I co-authored <a href="/book/"><em>{BOOK.title}</em></a>, now in its second edition. In 2024 I was recognised in the Rising Star of the Year category at the Digital Revolution Awards. I've led MuleSoft meetups in Mumbai and London for more than seven years, and was a MuleSoft Ambassador from 2020 to 2022.</p>
     <p>Right now I'm building <a href="https://github.com/akshatasawant9699/sf-ops-agent">sf-ops-agent</a> in public: an eval-tested Salesforce ops agent.</p>
   </div>
 
+  <h2>Awards and recognition</h2>
+  <ul class="recognition">
+    {RECOGNITION.map((r) => (
+      <li>
+        <strong>{r.url ? <a href={r.url}>{r.title}</a> : r.title}</strong>, {r.org}{r.note && ` (${r.note})`}
+        <span class="muted small"> · {r.when}</span>
+      </li>
+    ))}
+  </ul>
+
   <h2>Certifications</h2>
   <ul>
-    <li>Salesforce Certified AI Associate</li>
-    <li>MuleSoft Certified Integration Architect</li>
-    <li>MuleSoft Certified Developer, Level 1</li>
-    <li>Pragmatic Institute PMC Level I</li>
+    {CERTIFICATIONS.map((c) => <li>{c}</li>)}
   </ul>
 
   <h2>Timeline</h2>
@@ -30,4 +37,4 @@ import { LINKS, BOOK } from '../site.config';
   <h2>Contact</h2>
   <p>The best way to reach me is a message on <a href={LINKS.linkedin}>LinkedIn</a>.</p>
 </Base>
-<style>.photo { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; margin: .5rem 0 1.25rem; }</style>
+<style>.recognition li { margin-bottom: .35rem; } .photo { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; margin: .5rem 0 1.25rem; }</style>

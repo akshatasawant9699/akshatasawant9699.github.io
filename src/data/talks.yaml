@@ -15,6 +15,13 @@
   date: 2026-05-01
   recording: https://www.youtube.com/watch?v=uwogPlo6hag
   description: Accelerate Data Cloud builds with Flow, Data Graphs, Calculated Insights and APIs.
+- id: bugendaitech-headless-360-2026
+  title: Everything You Need to Know About Salesforce Headless 360
+  event: BugendaiTech webinar
+  kind: webinar
+  date: 2026-05-29
+  location: Online
+  recording: https://www.youtube.com/watch?v=5U74wY3-ATs
 - id: oxford-ai-summit-2025
   title: Autonomous Agents
   event: Oxford AI Summit 2025
@@ -26,12 +33,30 @@
   date: 2025-03-05
   recording: https://www.youtube.com/watch?v=I9YMhgBvu40
   description: Build agents with Agentforce and connect APIs using MuleSoft Topic Center and API Catalog.
+- id: london-calling-2024-data-cloud-apis
+  title: Using Data Cloud APIs with MuleSoft (with Danielle Larregui)
+  event: London's Calling 2024
+  date: 2024-06-07
+  location: London, UK
+  recording: https://www.youtube.com/watch?v=yKzLmB7TdYY
+- id: devoxx-uk-2024-ai-enabled-apis
+  title: Exploring the power of AI-Enabled APIs
+  event: Devoxx UK 2024
+  date: 2024-05-09
+  location: London, UK
+  recording: https://www.youtube.com/watch?v=3d84-jQEl4A
 - id: dreamforce-2023-mulesoft-winter24
   title: "MuleSoft: Winter '24 Developer Preview (Release Readiness Live)"
   event: Dreamforce 2023
   date: 2023-09-13
   location: San Francisco, USA
   recording: https://www.youtube.com/watch?v=_q1dla4Usng
+- id: london-calling-2023-mulesoft
+  title: 5 things every Salesforce Developer should know about MuleSoft
+  event: London's Calling 2023
+  date: 2023-06-09
+  location: London, UK
+  recording: https://www.youtube.com/watch?v=w4ElPiAnUNM
 - id: gophercon-uk-2023-zero-trust
   title: Zero Trust Security for your APIs
   event: GopherCon UK 2023

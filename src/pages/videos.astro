@@ -6,21 +6,34 @@ import { LINKS } from '../site.config';
 const videos = await getVideos();
 const own = videos.filter((v) => v.data.source === 'own');
 const external = videos.filter((v) => v.data.source === 'external');
-// Group my uploads by playlist, newest playlist first (videos are already newest first).
-const groups = new Map<string, typeof own>();
-for (const v of own) {
-  const key = v.data.series ?? 'More videos';
-  groups.set(key, [...(groups.get(key) ?? []), v]);
+// Group by series, newest series first (videos are already newest first).
+function bySeries(list: typeof videos) {
+  const groups = new Map<string, typeof videos>();
+  for (const v of list) {
+    const key = v.data.series ?? 'More videos';
+    groups.set(key, [...(groups.get(key) ?? []), v]);
+  }
+  return [...groups];
 }
+// Official channels get "on <channel>" in the heading; community series list channels per card.
+const heading = (series: string, items: typeof videos) => {
+  const channels = new Set(items.map((v) => v.data.channel));
+  const [only] = channels;
+  return channels.size === 1 && only !== series ? `${series}, on ${only}` : series;
+};
 ---
-<Base title="Videos" description="Videos by Akshata Sawant: Agentforce Decoded on Salesforce Developers, and hands-on tutorials on AI agents, MCP and Document AI.">
+<Base title="Videos" description="Videos and livestreams by Akshata Sawant: Agentforce Decoded, codeLive and AIforce in Action on Salesforce Developers, MuleSoft videos, guest appearances, meetups and tutorials.">
   <h1>Videos</h1>
   <p class="muted">Videos from <a href={LINKS.youtubePlaylists}>my YouTube channel</a> play here when you click them. Videos I made for <a href={LINKS.salesforceDevs}>Salesforce Developers</a> link to the official copies.</p>
 
-  <h2>Agentforce Decoded, on Salesforce Developers</h2>
-  <VideoGrid videos={external} />
+  {bySeries(external).map(([series, items]) => (
+    <>
+      <h2>{heading(series, items)}</h2>
+      <VideoGrid videos={items} />
+    </>
+  ))}
 
-  {[...groups].map(([series, items]) => (
+  {bySeries(own).map(([series, items]) => (
     <>
       <h2>{series}</h2>
       <VideoGrid videos={items} />

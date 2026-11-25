@@ -70,3 +70,133 @@
   channel: Akshata Sawant
   series: Get Started with AI
   description: Build a simple deterministic agent with the OpenAI Python SDK.
+# Livestreams and videos on Salesforce Developers (official copies, linked out)
+- id: aiforce-hxl-slack
+  title: Bring Salesforce-Powered Experiences to Slack with HXL
+  date: 2026-11-16
+  youtubeId: Rok_tUnz-lM
+  source: external
+  channel: Salesforce Developers
+  series: AIforce in Action
+- id: aiforce-hxl-explained
+  title: "Headless Experience Layer (HXL) Explained: Rich UI for Agents"
+  date: 2026-10-29
+  youtubeId: 63ws8UYc2ls
+  source: external
+  channel: Salesforce Developers
+  series: AIforce in Action
+- id: codelive-connected-agents-topic-center
+  title: "Agentforce NOW codeLive: Build Connected Agents with Topic Center and API Catalog"
+  date: 2025-07-16
+  youtubeId: O0ySfknw6JM
+  source: external
+  channel: Salesforce Developers
+  series: Livestreams
+- id: mulesoft-ama-aug-2023
+  title: "MuleSoft for Salesforce Devs: Ask Me Anything (August 2023)"
+  date: 2023-08-30
+  youtubeId: VjxH6csh2OQ
+  source: external
+  channel: Salesforce Developers
+  series: Livestreams
+- id: codelive-pubsub-acb
+  title: "codeLive: Integrating Salesforce Pub/Sub APIs with Anypoint Code Builder"
+  date: 2023-08-03
+  youtubeId: WGhE4oIkQUM
+  source: external
+  channel: Salesforce Developers
+  series: Livestreams
+- id: codelive-api-experience-hub
+  title: "codeLive: Unveiling Anypoint API Experience Hub"
+  date: 2023-06-29
+  youtubeId: ZeUCY5l_MMU
+  source: external
+  channel: Salesforce Developers
+  series: Livestreams
+- id: codelive-large-volumes
+  title: "codeLive: Processing Large Volumes of Salesforce Data with MuleSoft"
+  date: 2023-05-04
+  youtubeId: jYKaZxkToXI
+  source: external
+  channel: Salesforce Developers
+  series: Livestreams
+# MuleSoft Videos (official copies, linked out)
+- id: mulesoft-ai-gateway-getting-started
+  title: Getting Started with MuleSoft AI Gateway
+  date: 2026-05-13
+  youtubeId: nc-Z63a7ZqU
+  source: external
+  channel: MuleSoft Videos
+  series: MuleSoft Videos
+- id: mulesoft-exploring-experience-hub
+  title: Exploring Anypoint Experience Hub (with Alex Martinez)
+  date: 2023-08-18
+  youtubeId: nHkVlqHsqAg
+  source: external
+  channel: MuleSoft Videos
+  series: MuleSoft Videos
+# Guest appearances and interviews on community channels (linked out)
+- id: specmatic-interview-2025
+  title: From humble blog jottings to author and international speaker
+  date: 2025-05-19
+  youtubeId: BLIldXvrvcE
+  source: external
+  channel: Specmatic
+  series: Interviews and guest appearances
+- id: women-who-mule-idp-2025
+  title: "Women Who Mule: Intelligent Document Processing with Einstein AI"
+  date: 2025-01-29
+  youtubeId: XKy8wxa1qys
+  source: external
+  channel: Digital Dee
+  series: Interviews and guest appearances
+- id: prostdev-dataweave-2023
+  title: Let's learn some DataWeave with Akshata Sawant
+  date: 2023-03-23
+  youtubeId: njMbF-54ZIU
+  source: external
+  channel: ProstDev
+  series: Interviews and guest appearances
+- id: women-who-mule-ambassadresses-2023
+  title: "Women Who Mule: Celebrating MuleSoft Community Ambassadresses"
+  date: 2023-03-16
+  youtubeId: 5PWaWSnQzFg
+  source: external
+  channel: Digital Dee
+  series: Interviews and guest appearances
+# Meetups on my channel
+- id: london-meetup-data-cloud-2024
+  title: "London MuleSoft Meetup: Power Up with Data Cloud and MuleSoft"
+  date: 2024-04-18
+  youtubeId: k_NN2EvoU2c
+  source: own
+  channel: Akshata Sawant
+  series: MuleSoft Meetups
+- id: manchester-meetup-8
+  title: "Manchester MuleSoft Meetup #8: UAPIM and API Governance"
+  date: 2022-09-29
+  youtubeId: JZ79uc1Vc5c
+  source: own
+  channel: Akshata Sawant
+  series: MuleSoft Meetups
+- id: mumbai-meetup-16
+  title: "Mumbai MuleSoft Meetup #16 (Part 1)"
+  date: 2021-02-28
+  youtubeId: f0n4jquI8mk
+  source: own
+  channel: Akshata Sawant
+  series: MuleSoft Meetups
+- id: mumbai-meetup-14
+  title: "Mumbai MuleSoft Meetup #14: Visualizing Mule Flow Execution Graph with Diagrams"
+  date: 2020-10-27
+  youtubeId: aDoO36uDvCw
+  source: own
+  channel: Akshata Sawant
+  series: MuleSoft Meetups
+- id: mulesoft-101-2020
+  title: MuleSoft 101
+  date: 2020-08-29
+  youtubeId: MzZ6Y0lae1s
+  source: own
+  channel: Akshata Sawant
+  series: MuleSoft Meetups

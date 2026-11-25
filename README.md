@@ -54,7 +54,7 @@ draft: false          # true = hidden from the build, RSS and sitemap
 Your post in Markdown.
 ```
 
-**A post published elsewhere** (e.g. the Salesforce Developers Blog): add `externalUrl:` and `publication:` and leave the body empty. It's listed in Writing and RSS and links out. See the `sf-*.md` files.
+**A post published elsewhere** (e.g. the Salesforce Developers Blog or MuleSoft Blog): add `externalUrl:` and `publication:` and leave the body empty. It's listed in Writing and RSS and links out. See the `sf-*.md` and `mb-*.md` files.
 
 ### A video
 
@@ -70,7 +70,7 @@ Add an entry to `src/data/videos.yaml`:
   description: Optional one-liner.
 ```
 
-Use `source: external` for videos made for Salesforce, so they link to the official copy.
+Use `source: external` for videos made for Salesforce or MuleSoft, or guest appearances on other channels, so they link to the official copy. `series` sets the group heading on /videos.
 
 **Automatic:** at build time the site also reads the RSS feeds of the public playlists listed in `YOUTUBE.playlists` (`src/site.config.ts`) and adds any video uploaded by your channel that isn't already in `videos.yaml`, grouped by playlist. The workflow rebuilds daily at 06:17 UTC, so new uploads show up within a day. To add a playlist, paste its ID (the `list=` part of the URL). To hide or rename an auto-added video, add it to `videos.yaml` (curated entries win). If YouTube is unreachable, the build continues with `videos.yaml` only.
 
@@ -79,6 +79,14 @@ Use `source: external` for videos made for Salesforce, so they link to the offic
 For an upcoming event, give `date` a full time (e.g. `2026-12-10T15:00:00Z`) and add a `register:` link: it shows under **Upcoming** on the home page and /talks until it has passed, then moves to past talks on the next daily rebuild. Add `recording:` afterwards.
 
 Add an entry to `src/data/talks.yaml` or `src/data/projects.yaml`, following the existing entries. Schemas are in `src/content.config.ts`.
+
+### Awards and certifications
+
+Edit `RECOGNITION` and `CERTIFICATIONS` in `src/site.config.ts`. They're shown on /about; the first award also appears on the home page.
+
+### Content inventory (for a spreadsheet)
+
+Every build publishes [`/content-inventory.csv`](https://akshatasawant9699.github.io/content-inventory.csv): one row per post, video, talk, project, award and certification on the site, including auto-added YouTube videos. In Google Sheets, `=IMPORTDATA("https://akshatasawant9699.github.io/content-inventory.csv")` gives a tab that stays current.
 
 ### Placeholder content
 

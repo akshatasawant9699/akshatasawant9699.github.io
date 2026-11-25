@@ -71,3 +71,27 @@ export const TIMELINE = [
   { when: '2017 – 2019', role: 'Senior Software Analyst', org: 'Capgemini', place: 'India' },
   { when: '2013 – 2017', role: 'BE, Information Technology', org: 'Xavier Institute of Engineering', place: 'Mumbai' },
 ];
+
+// Awards and recognition, newest first. Shown on /about; the first one also appears on the home page.
+export const RECOGNITION = [
+  {
+    when: '2024',
+    title: 'Rising Star of the Year',
+    org: 'Digital Revolution Awards 2024',
+    note: 'with Lewis Baybutt',
+    url: 'https://www.youtube.com/watch?v=v2OOHr0qSGs',
+  },
+  { when: '2022', title: 'MuleSoft Go To Market Champion', org: 'MuleSoft' },
+  { when: '2020 – 2022', title: 'MuleSoft Ambassador', org: 'MuleSoft' },
+  { when: '2019 – now', title: 'MuleSoft Meetup Leader, Mumbai and London', org: 'MuleSoft Community' },
+];
+
+export const CERTIFICATIONS = [
+  'Salesforce Certified AI Associate',
+  'MuleSoft Certified Integration Architect',
+  'MuleSoft Certified Developer, Level 1',
+  'MuleSoft Certified Developer, API Design Associate',
+  'MuleSoft Certified Developer, Integration and API Associate',
+  'Pragmatic Institute PMC Level I',
+  'The Oxford AI Summit 2025: Autonomous Agents, University of Oxford',
+];
