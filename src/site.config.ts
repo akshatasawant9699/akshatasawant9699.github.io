@@ -116,6 +116,6 @@ export const LINKEDIN_VIDEOS = [
 // Google Search Console: Add property -> URL prefix -> HTML tag. Bing Webmaster Tools: HTML Meta Tag
 // (or skip this and use Bing's "Import from Google Search Console").
 export const VERIFICATION = {
-  google: '',
+  google: 'ehqeR1Z60989OZCQcOeyzu8pXROtan8ZMaZgrsfNPv0',
   bing: '',
 };
