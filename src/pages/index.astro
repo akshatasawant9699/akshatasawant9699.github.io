@@ -1,8 +1,88 @@
 ---
+import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
-import { SITE } from '../site.config';
+import PostList from '../components/PostList.astro';
+import VideoGrid from '../components/VideoGrid.astro';
+import NewsletterForm from '../components/NewsletterForm.astro';
+import Timeline from '../components/Timeline.astro';
+import SocialLinks from '../components/SocialLinks.astro';
+import { Content as Now, frontmatter as nowMeta } from '../now.md';
+import headshot from '../assets/headshot.jpg';
+import { SITE, BOOK } from '../site.config';
+import { getPosts, getVideos, getProjects, formatDate, isoDate } from '../lib/content';
+
+const posts = (await getPosts()).slice(0, 3);
+const videos = (await getVideos()).slice(0, 3);
+const featured = (await getProjects()).find((p) => p.data.featured);
+const nowUpdated = new Date(nowMeta.updated);
 ---
 <Base>
-  <h1>{SITE.name}</h1>
-  <p>{SITE.positioning}</p>
+  <section class="intro" aria-labelledby="intro-name">
+    <Image src={headshot} alt="Portrait of Akshata Sawant, smiling, against a blue background" width={176} height={176} widths={[176, 352]} sizes="176px" loading="eager" fetchpriority="high" class="photo" />
+    <div>
+      <h1 id="intro-name">{SITE.name}</h1>
+      <p class="lede">{SITE.positioning}</p>
+      <p class="muted">Lead Developer Advocate at Salesforce, based in London. I write, speak and ship open-source examples about AI agents, MCP and integration.</p>
+      <SocialLinks />
+    </div>
+  </section>
+
+  <section aria-labelledby="now">
+    <h2 id="now">Now</h2>
+    <div class="prose"><Now /></div>
+    <p class="small muted">Updated <time datetime={isoDate(nowUpdated)}>{formatDate(nowUpdated)}</time></p>
+  </section>
+
+  <section aria-labelledby="writing">
+    <h2 id="writing">Latest writing</h2>
+    <PostList posts={posts} showTags={false} />
+    <p class="section-more"><a href="/writing/">All writing →</a></p>
+  </section>
+
+  <section aria-labelledby="videos">
+    <h2 id="videos">Latest videos</h2>
+    <VideoGrid videos={videos} />
+    <p class="section-more"><a href="/videos/">All videos →</a></p>
+  </section>
+
+  {featured && (
+    <section aria-labelledby="project">
+      <h2 id="project">Featured project</h2>
+      <div class="card">
+        <h3 class="card-title"><a href={featured.data.url}>{featured.data.name}</a>{featured.data.status === 'building' && <span class="badge">Building in public</span>}</h3>
+        <p>{featured.data.description}</p>
+        <p class="small muted">{featured.data.stack.join(' · ')}</p>
+      </div>
+      <p class="section-more"><a href="/projects/">All projects →</a></p>
+    </section>
+  )}
+
+  <section aria-labelledby="book">
+    <h2 id="book">The book</h2>
+    <div class="card">
+      <p><strong><a href="/book/">{BOOK.title}</a></strong>: {BOOK.subtitle}.
+        Get it on Amazon: {BOOK.editions.map((e, i) => <>{i > 0 && ' · '}<a href={e.url}>{e.label}</a></>)}.</p>
+      <p>Want to hear about the next book? Leave your email.</p>
+      <NewsletterForm />
+    </div>
+  </section>
+
+  <section aria-labelledby="timeline">
+    <h2 id="timeline">Timeline</h2>
+    <Timeline />
+    <p class="section-more"><a href="/about/">More about me →</a></p>
+  </section>
 </Base>
+
+<style>
+  .intro { display: flex; gap: 1.5rem; align-items: center; margin-top: .5rem; }
+  .photo { width: 176px; height: 176px; border-radius: 50%; flex: none; object-fit: cover; }
+  .lede { font-size: 1.2rem; font-weight: 500; margin-bottom: .5rem; }
+  .intro p { margin-bottom: .25rem; }
+  .card-title { margin-top: 0; display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; }
+  .card p:last-child { margin-bottom: 0; }
+  @media (max-width: 560px) {
+    .intro { flex-direction: column; align-items: flex-start; }
+    .photo { width: 128px; height: 128px; }
+  }
+</style>

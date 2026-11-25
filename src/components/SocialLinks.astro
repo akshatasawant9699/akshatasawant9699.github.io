@@ -1,0 +1,20 @@
+---
+import Icon from './Icon.astro';
+import { LINKS } from '../site.config';
+const items = [
+  { href: LINKS.linkedin, label: 'LinkedIn', icon: 'linkedin' },
+  { href: LINKS.youtube, label: 'YouTube', icon: 'youtube' },
+  { href: LINKS.github, label: 'GitHub', icon: 'github' },
+  { href: LINKS.rss, label: 'RSS feed', icon: 'rss' },
+] as const;
+---
+<ul class="social">
+  {items.map((i) => (
+    <li><a href={i.href} aria-label={i.label} title={i.label}><Icon name={i.icon} /></a></li>
+  ))}
+</ul>
+<style>
+  .social { list-style: none; margin: .75rem 0 0; padding: 0; display: flex; gap: .4rem; }
+  .social a { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 8px; color: var(--muted); }
+  .social a:hover { color: var(--accent); background: var(--surface); }
+</style>

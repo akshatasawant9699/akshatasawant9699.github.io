@@ -1,0 +1,23 @@
+---
+import { postHref, formatDate, isoDate, tagSlug, type Post } from '../lib/content';
+interface Props { posts: Post[]; showTags?: boolean }
+const { posts, showTags = true } = Astro.props;
+---
+<ul class="entries">
+  {posts.map((p) => (
+    <li>
+      <a href={postHref(p)}>{p.data.title}</a>
+      {p.data.externalUrl && <span class="visually-hidden"> (on {p.data.publication ?? 'an external site'})</span>}
+      {p.data.draft && <span class="badge">Draft</span>}
+      <span class="meta">
+        <time datetime={isoDate(p.data.date)}>{formatDate(p.data.date)}</time>
+        {p.data.publication && <> · {p.data.publication} ↗</>}
+      </span>
+      {showTags && p.data.tags.length > 0 && (
+        <ul class="tags" aria-label="Tags">
+          {p.data.tags.map((t) => <li><a class="tag" href={`/writing/tags/${tagSlug(t)}/`}>{t}</a></li>)}
+        </ul>
+      )}
+    </li>
+  ))}
+</ul>

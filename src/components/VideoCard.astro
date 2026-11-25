@@ -1,0 +1,29 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { formatMonth, isoDate } from '../lib/content';
+interface Props { video: CollectionEntry<'videos'>; headingLevel?: 'h2' | 'h3' }
+const { video, headingLevel: H = 'h3' } = Astro.props;
+const { title, youtubeId, source, channel, date, description } = video.data;
+const watchUrl = `https://www.youtube.com/watch?v=${youtubeId}`;
+const thumb = `https://i.ytimg.com/vi/${youtubeId}/mqdefault.jpg`;
+const own = source === 'own';
+---
+<article class="video">
+  {own ? (
+    <div class="yt" data-yt-id={youtubeId} data-yt-title={title}>
+      <a class="yt-thumb" href={watchUrl}>
+        <img src={thumb} alt="" width="320" height="180" loading="lazy" decoding="async" />
+        <span class="yt-play" aria-hidden="true"></span>
+        <span class="visually-hidden">Play video: {title}</span>
+      </a>
+    </div>
+  ) : (
+    <a class="yt-thumb" href={watchUrl} tabindex="-1" aria-hidden="true">
+      <img src={thumb} alt="" width="320" height="180" loading="lazy" decoding="async" />
+      <span class="yt-ext">Watch on YouTube ↗</span>
+    </a>
+  )}
+  <H class="video-title"><a href={watchUrl}>{title}</a>{!own && <span class="visually-hidden"> (opens on YouTube)</span>}</H>
+  <p class="meta small muted">{channel} · <time datetime={isoDate(date)}>{formatMonth(date)}</time></p>
+  {description && <p class="small">{description}</p>}
+</article>

@@ -1,0 +1,24 @@
+---
+import { NEWSLETTER, LINKS } from '../site.config';
+const enabled = NEWSLETTER.action.trim().length > 0;
+const id = 'nl-email';
+---
+<form class="newsletter" action={enabled ? NEWSLETTER.action : undefined} method={NEWSLETTER.method} aria-describedby="nl-note">
+  <label for={id}>Email address</label>
+  <div class="nl-row">
+    <input id={id} name={NEWSLETTER.emailField} type="email" autocomplete="email" required placeholder="you@example.com" disabled={!enabled} />
+    <button class="button" type="submit" disabled={!enabled}>Notify me</button>
+  </div>
+  <p id="nl-note" class="small muted">
+    {enabled
+      ? 'Occasional emails about new books and writing. Unsubscribe any time.'
+      : <>Sign-up opens soon. Meanwhile, follow me on <a href={LINKS.linkedin}>LinkedIn</a> for updates.</>}
+  </p>
+</form>
+<style>
+  .newsletter label { display: block; font-weight: 600; font-size: .95rem; margin-bottom: .3rem; }
+  .nl-row { display: flex; flex-wrap: wrap; gap: .5rem; }
+  .nl-row input { flex: 1 1 14rem; min-width: 0; font: inherit; padding: .5rem .7rem; border: 1px solid var(--muted); border-radius: 6px; background: var(--bg); color: var(--fg); }
+  .nl-row input[disabled] { opacity: .7; }
+  .newsletter p { margin: .5rem 0 0; }
+</style>

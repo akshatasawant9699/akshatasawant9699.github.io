@@ -3,21 +3,21 @@
 # source: external -> official copy on another channel (e.g. Salesforce Developers); we link out
 - id: agentforce-python-sdk-decoded
   title: Build and Manage Agents with Agentforce Python SDK
-  date: 2025-09-15
+  date: 2025-09-04
   youtubeId: rQPuJvLhsk0
   source: external
   channel: Salesforce Developers
   series: Agentforce Decoded
 - id: document-ai-agentforce-decoded
   title: Integrate Data Cloud's Document AI with Agentforce
-  date: 2025-09-01
+  date: 2025-09-11
   youtubeId: N48sT3jg9p8
   source: external
   channel: Salesforce Developers
   series: Agentforce Decoded
 - id: mulesoft-topic-center-decoded
   title: Explore MuleSoft for Agentforce with Topic Center and API Catalog
-  date: 2025-06-15
+  date: 2025-06-19
   youtubeId: _rkKH_pokj4
   source: external
   channel: Salesforce Developers
