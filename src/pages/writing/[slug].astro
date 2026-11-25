@@ -1,0 +1,49 @@
+---
+import { render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { getLocalPosts, readingTime, formatDate, isoDate, tagSlug } from '../../lib/content';
+
+export async function getStaticPaths() {
+  const posts = await getLocalPosts(); // newest first
+  return posts.map((post, i) => ({
+    params: { slug: post.id },
+    props: { post, newer: posts[i - 1], older: posts[i + 1] },
+  }));
+}
+const { post, newer, older } = Astro.props;
+const { Content } = await render(post);
+const { title, description, date, tags, draft, placeholder } = post.data;
+---
+<Base title={title} description={description} type="article" publishedTime={date} noindex={draft}>
+  <article>
+    <header class="post-header">
+      <h1>{title}</h1>
+      <p class="muted small">
+        <time datetime={isoDate(date)}>{formatDate(date)}</time> · {readingTime(post.body)}
+        {draft && <> · <span class="badge">Draft</span></>}
+        {placeholder && <> · <span class="badge">Placeholder</span></>}
+      </p>
+      {tags.length > 0 && (
+        <ul class="tags" aria-label="Tags">
+          {tags.map((t) => <li><a class="tag" href={`/writing/tags/${tagSlug(t)}/`}>{t}</a></li>)}
+        </ul>
+      )}
+    </header>
+    <div class="prose">
+      <Content />
+    </div>
+  </article>
+  <nav class="post-nav" aria-label="More posts">
+    {older ? <a href={`/writing/${older.id}/`} rel="prev"><span class="small muted">← Older</span><span>{older.data.title}</span></a> : <span></span>}
+    {newer && <a href={`/writing/${newer.id}/`} rel="next" class="next"><span class="small muted">Newer →</span><span>{newer.data.title}</span></a>}
+  </nav>
+</Base>
+<style>
+  .post-header { margin-bottom: 2rem; }
+  .post-header p { margin: 0; }
+  .post-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid var(--border); }
+  .post-nav a { display: flex; flex-direction: column; gap: .15rem; text-decoration: none; }
+  .post-nav a span:last-child { text-decoration: underline; text-underline-offset: .18em; }
+  .post-nav .next { text-align: right; grid-column: 2; }
+  @media (max-width: 480px) { .post-nav { grid-template-columns: 1fr; } .post-nav .next { grid-column: 1; text-align: left; } }
+</style>
