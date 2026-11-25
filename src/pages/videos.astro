@@ -1,0 +1,20 @@
+---
+import Base from '../layouts/Base.astro';
+import VideoGrid from '../components/VideoGrid.astro';
+import { getVideos } from '../lib/content';
+import { LINKS } from '../site.config';
+const videos = await getVideos();
+const own = videos.filter((v) => v.data.source === 'own');
+const external = videos.filter((v) => v.data.source === 'external');
+---
+<Base title="Videos" description="Videos by Akshata Sawant: Agentforce Decoded on Salesforce Developers, and hands-on tutorials on AI agents, MCP and Document AI.">
+  <h1>Videos</h1>
+  <p class="muted">Tutorials from <a href={LINKS.youtubePlaylists}>my YouTube channel</a> play here when you click them. Videos I made for <a href={LINKS.salesforceDevs}>Salesforce Developers</a> link to the official copies.</p>
+
+  <h2>Agentforce Decoded, on Salesforce Developers</h2>
+  <VideoGrid videos={external} />
+
+  <h2>Tutorials from my channel</h2>
+  <VideoGrid videos={own} />
+  <p class="section-more"><a href={LINKS.youtubePlaylists}>All playlists on YouTube →</a></p>
+</Base>
