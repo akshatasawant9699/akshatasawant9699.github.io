@@ -13,4 +13,5 @@ exclude = [
   "^https://(www\\.)?akshatasawant\\.dev/",
   "^https://www\\.youtube-nocookie\\.com/",
   "^https://fonts\\.",
+  "^https://api\\.web3forms\\.com/",   # form endpoint: POST only
 ]
