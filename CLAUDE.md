@@ -7,3 +7,4 @@
 - Content workflow and file locations: see README.md.
 - Open to-dos for the site are in TODO.md; check it at the start of a session and tick items off when done.
 - Pronouns aren't stated: speaker bios are written without pronouns.
+- The Salesforce corporate network blocks akshatasawant.dev (connection reset). When checking the live site from a Salesforce machine, a failure is the network, not the site; ask Akshata to check off that network.
