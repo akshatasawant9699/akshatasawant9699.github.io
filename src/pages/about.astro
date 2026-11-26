@@ -28,7 +28,7 @@ import { LINKS, BOOK, RECOGNITION, CERTIFICATIONS } from '../site.config';
 
   <h2>Certifications</h2>
   <ul>
-    {CERTIFICATIONS.map((c) => <li>{c}</li>)}
+    {CERTIFICATIONS.map((c) => <li>{c.url ? <a href={c.url}>{c.name}</a> : c.name}{c.issuer && `, ${c.issuer}`}{c.when && <span class="muted small"> · {c.when}</span>}</li>)}
   </ul>
 
   <h2>Timeline</h2>

@@ -87,14 +87,22 @@ export const RECOGNITION = [
   { when: '2019 – now', title: 'MuleSoft Meetup Leader, Mumbai and London', org: 'MuleSoft Community' },
 ];
 
-export const CERTIFICATIONS = [
-  'Salesforce Certified AI Associate',
-  'MuleSoft Certified Integration Architect',
-  'MuleSoft Certified Developer, Level 1',
-  'MuleSoft Certified Developer, API Design Associate',
-  'MuleSoft Certified Developer, Integration and API Associate',
-  'Pragmatic Institute PMC Level I',
-  'The Oxford AI Summit 2025: Autonomous Agents, University of Oxford',
+// Certifications, newest first. Shown on /about. Add `url` (e.g. a Credly badge) to link the name;
+// linked ones are also listed as credentials in the Person structured data.
+export const CERTIFICATIONS: { name: string; issuer?: string; when?: string; url?: string }[] = [
+  {
+    name: 'Claude Certified Associate – Foundations',
+    issuer: 'Anthropic',
+    when: '2026',
+    url: 'https://www.credly.com/badges/a8c5eb32-151c-4c69-9182-ce10b6c5b3ac/public_url',
+  },
+  { name: 'Salesforce Certified AI Associate' },
+  { name: 'MuleSoft Certified Integration Architect' },
+  { name: 'MuleSoft Certified Developer, Level 1' },
+  { name: 'MuleSoft Certified Developer, API Design Associate' },
+  { name: 'MuleSoft Certified Developer, Integration and API Associate' },
+  { name: 'Pragmatic Institute PMC Level I' },
+  { name: 'The Oxford AI Summit 2025: Autonomous Agents, University of Oxford' },
 ];
 
 // Videos published natively on LinkedIn (listed on /videos with a link to the post), newest first.

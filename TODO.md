@@ -23,4 +23,4 @@ Things to pick up next. Tick them off (or delete them) as they're done.
 - [ ] **Original writing on this site.** Publish some posts here (in `src/content/posts/`), not only on other sites, so search engines credit akshatasawant.dev. Summaries or companion notes for blog posts on other sites work well.
 - [ ] **Newsletter.** Create a free Buttondown account and put its form URL in `NEWSLETTER.action` in `src/site.config.ts`.
 - [ ] **Visit counts (optional).** Cloudflare Web Analytics is free and uses no cookies. It means changing the footer's "no tracking" note.
-- [ ] **GitHub profile README.** Add a link to akshatasawant.dev.
+- [x] **GitHub profile README.** Add a link to akshatasawant.dev. (Done 26 Nov 2026: website badge at the top, plus the Claude certification.)

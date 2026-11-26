@@ -73,7 +73,7 @@ export async function GET() {
   }
 
   for (const c of CERTIFICATIONS) {
-    rows.push(['Certification', c, '', '', '', '/about/', 'src/site.config.ts (CERTIFICATIONS)', '']);
+    rows.push(['Certification', c.name, c.when ?? '', c.issuer ?? '', c.url ?? '', '/about/', 'src/site.config.ts (CERTIFICATIONS)', '']);
   }
 
   return new Response(csv([HEADER, ...rows]), {
