@@ -102,7 +102,7 @@ Home and speaker kit pages include schema.org `Person` structured data (`src/lib
 
 `/contact` has a form that emails messages to you through [Web3Forms](https://web3forms.com) (free, 250 messages a month). Your email address is never published: it's linked to an access key on Web3Forms' side.
 
-1. Go to https://web3forms.com, enter your email address and click **Create Access Key**. The key arrives by email.
+1. Sign in at https://app.web3forms.com, create a form (Website URL: `akshatasawant.dev`; recipient: your inbox), and copy the **Form Access Key** from its *Form Setup* tab. Received messages are also listed under *Submissions*.
 2. Paste it into `CONTACT.web3formsKey` in `src/site.config.ts` and push. (The key is safe to publish; it can only send messages to your inbox.)
 
 While the key is empty, `/contact` shows a LinkedIn link instead of the form. After sending, visitors land on `/contact/thanks/`. A hidden `botcheck` field filters simple spam bots.

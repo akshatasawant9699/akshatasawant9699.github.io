@@ -133,7 +133,7 @@ export const VERIFICATION = {
 // inbox linked to this access key; the email address itself never appears on the site or in this repo.
 // The key is safe to publish (it can only send messages to that inbox). Empty = show a LinkedIn link instead.
 export const CONTACT = {
-  web3formsKey: '',
+  web3formsKey: 'caac8723-5f91-4ff8-bf7b-64beb6f91070',
 };
 
 // Events shown in the "Spoken at" line (home page and /speaker-kit). Text only, no logos.

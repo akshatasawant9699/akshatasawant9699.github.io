@@ -4,7 +4,7 @@ Things to pick up next. Tick them off (or delete them) as they're done.
 
 ## Needs you (a few minutes each)
 
-- [ ] **Turn on the contact form.** At https://web3forms.com, enter your Gmail address and click *Create Access Key*. Send the key to Claude (or paste it into `CONTACT.web3formsKey` in `src/site.config.ts`), deploy, then send yourself a test message from `/contact`.
+- [ ] **Test the contact form.** The key is in place (form "Contact Akshata Sawant" on Web3Forms). Off the work network, send a test message from `/contact` and check it arrives (and isn't in Spam).
 - [ ] **Bing Webmaster Tools.** At https://www.bing.com/webmasters, choose *Import from Google Search Console* and select `akshatasawant.dev`.
 - [ ] **Search Console.** Check that the sitemap status is *Success* (about 11 pages), use *URL inspection* → *Request indexing* for `/`, `/talks/`, `/about/` and `/speaker-kit/`, and remove the old failed `https://akshatasawant9699.github.io` property.
 - [ ] **LinkedIn.** Add `https://akshatasawant.dev` under *Contact info* → *Website*.
