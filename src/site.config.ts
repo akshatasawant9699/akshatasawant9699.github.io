@@ -93,7 +93,7 @@ export const CERTIFICATIONS: { name: string; issuer?: string; when?: string; url
   {
     name: 'Claude Certified Associate – Foundations',
     issuer: 'Anthropic',
-    when: '2026',
+    when: 'Nov 2026',
     url: 'https://www.credly.com/badges/a8c5eb32-151c-4c69-9182-ce10b6c5b3ac/public_url',
   },
   { name: 'Salesforce Certified AI Associate' },

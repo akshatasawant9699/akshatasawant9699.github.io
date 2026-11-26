@@ -7,7 +7,7 @@ Things to pick up next. Tick them off (or delete them) as they're done.
 - [x] **Contact form.** Web3Forms key added and a test message received (26 Nov 2026).
 - [x] **Bing Webmaster Tools.** Imported from Search Console; sitemap status Success, 31 URLs discovered (26 Nov 2026).
 - [ ] **Search Console.** Check that the sitemap status is *Success* (about 11 pages), use *URL inspection* → *Request indexing* for `/`, `/talks/`, `/about/` and `/speaker-kit/`, and remove the old failed `https://akshatasawant9699.github.io` property.
-- [ ] **LinkedIn.** Add `https://akshatasawant.dev` under *Contact info* → *Website*.
+- [x] **LinkedIn.** Website added to the profile, and the Claude certification added under Licenses & certifications (26 Nov 2026).
 - [ ] **Check the speaker kit bios** at `/speaker-kit/`. They're written without pronouns; add yours if you want them used.
 
 ## Needs information from you
